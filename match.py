@@ -370,6 +370,7 @@ def generate_ranking_html(match_id, match_key, username):
     user_nickname = ""
     user_rank = ""
     clear_timestamp = -1
+    surrender = False
 
     rank_class = ""
     for user, rank in ranking:
@@ -382,8 +383,9 @@ def generate_ranking_html(match_id, match_key, username):
             clear_time = "-"
         else:
             clear_time = format_timestamp(clear_timestamp)
+        surrender = surrender_data[user]
 
-        html += """<tr class="match-ranking-table-row">"""
+        html += f"""<tr class="match-ranking-table-row {"surrender" if surrender else ""}">"""
         html += f"""<td class="match-ranking-table-td {rank_class}">#{rank}</td>"""
         html += f"""<td class="match-ranking-table-td {rank_class}">{nickname}</td>"""
         html += f"""<td class="match-ranking-table-td {rank_class}">{solved_count}</td>"""
