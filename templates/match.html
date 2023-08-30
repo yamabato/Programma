@@ -1,0 +1,126 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div id="match-cover">
+    <div id="match-cover-correct" class="match-cover-container">
+        <div id="match-cover-title" class="correct">正解!</div>
+        <button id="match-cover-next-problem" onclick="goNextProblem();">次へ</button>
+    </div>
+    <div id="match-cover-incorrect" class="match-cover-container">
+        <div id="match-cover-title" class="incorrect">不正解...</div>
+        <button id="match-cover-close" onclick="closePopUp();">閉じる</button>
+    </div>
+</div>
+
+<div id="match-main">
+    <div id="tab-area">
+        <div id="match-problem-tab" class="match-tab" onclick="matchChangeTab(0);">問題</div>
+        <div id="match-rank-tab" class="match-tab" onclick="matchChangeTab(1);">順位</div>
+        <div id="match-rule-tab" class="match-tab" onclick="matchChangeTab(2);">ルール</div>
+    </div>
+
+    <div id="buttons-area">
+        <div id="home-button">ホーム</div>
+        <div id="surrender-button">降参</div>
+    </div>
+
+    <div id="info-area" class="problem">
+        <div id="match-info-problem">
+        </div>
+
+        <div id="match-info-rank" hidden>
+            <table id="rank-table">
+                <tr id="rank-table-head">
+                    <th class="rank-table-th">順位</th>
+                    <th class="rank-table-th">名前</th>
+                    <th class="rank-table-th">問題数</th>
+                </tr>
+                <tr class="rank-table-row">
+                    <td class="rank-table-td">#1</td>
+                    <td class="rank-table-td">Taro</td>
+                    <td class="rank-table-td">31</td>
+                </tr>
+                <tr class="rank-table-row">
+                    <td class="rank-table-td">#2</td>
+                    <td class="rank-table-td">Jiro</td>
+                    <td class="rank-table-td">21</td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="match-info-rule" hidden>
+            <table id="rule-table">
+                <tr id="rule-table-row">
+                    <td class="rule-table-label">部屋名</td>
+                    <td class="rule-table-info">MATCH1</td>
+                </tr>
+                <tr id="rule-table-row">
+                    <td class="rule-table-label">タイプ</td>
+                    <td class="rule-table-info">時間制</td>
+                </tr>
+                <tr id="rule-table-row">
+                    <td class="rule-table-label">制限時間</td>
+                    <td class="rule-table-info">2時間</td>
+                </tr>
+                <tr id="rule-table-row">
+                    <td class="rule-table-label">問題数</td>
+                    <td class="rule-table-info">-</td>
+                </tr>
+                <tr id="rule-table-row">
+                    <td class="rule-table-label">参加形態</td>
+                    <td class="rule-table-info">個人戦</td>
+                </tr>
+                <tr id="rule-table-row">
+                    <td class="rule-table-label">難易度</td>
+                    <td class="rule-table-info">
+                        <div class="rule-table-level-container">
+                            <div class="rule-table-level available" id="rule-table-level-1">1</div>
+                            <div class="rule-table-level" id="rule-table-level-2">2</div>
+                            <div class="rule-table-level" id="rule-table-level-3">3</div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div id="editor-area">
+
+    </div>
+
+    <div id="submit-area">
+        <div id="run-button" onclick="runMatchProgram();">実行</div>
+        <div id="submit-button" onclick="submitMatchProgram();">提出</div>
+    </div>
+
+    <div id="output-area">
+        <div id="output-area-title">出力</div>
+
+        <div id="output-container">
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="match_page.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ace.js"></script>
+<script src="match.js"></script>
+
+<script>
+    const editor = ace.edit("editor-area");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/python");
+    editor.session.insert(editor.selection.getCursor(), `# Python Code Editor`);
+    editor.setFontSize(18);
+    editor.$blockScrolling = Infinity;
+    editor.setOptions({
+        fontFamily: "Roboto Mono"
+    });
+
+    matchChangeTab(0);
+
+    setNextProblem();
+</script>
+{% endblock %}

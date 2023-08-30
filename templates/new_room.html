@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="match-body">
+    <div class="match-content-area">
+        <div id="match-err-msg">
+        </div>
+
+        <div class="match-content-container">
+            <div class="match-container-title">新しい部屋を作成</div>
+
+            <div class="match-sub-container">
+                <div class="match-sub-container-title">部屋名</div>
+                <div id="match-room-name">
+                    <input type="text" name="match-room-name-input" id="match-room-name-input" class="new-match-input">
+                </div>
+            </div>
+
+            <div class="match-sub-container">
+                <div class="match-sub-container-title">パスワード</div>
+                <div id="match-room-password">
+                    <input type="password" name="match-room-password-input" id="match-room-password-input" class="new-match-input">
+                </div>
+            </div>
+
+            <div class="match-sub-container">
+                <div class="match-sub-container-title">表示名</div>
+                <div id="match-room-nickname">
+                    <input type="text" name="match-room-nickname-input" id="match-room-nickname-input" class="new-match-input">
+                </div>
+            </div>
+
+            <div class="match-sub-container">
+                <div class="match-sub-container-title">タイプ</div>
+                <select name="match-type" id="match-type" class="new-match-select" onchange="changeMatchType();">
+                    <option value="time">時間制</option>
+                    <option value="count">問題数制</option>
+                    <option value="inf">無限</option>
+                </select>
+
+                <div id="match-type-time">
+                    <div id="match-time-hour">
+                        <input type="number" name="match-time-hour-input" id="match-time-hour-input" class="new-match-input">
+                        <label for="match-time-hour-input" id="match-time-hour-label" class="new-match-label">時間</label>
+                    </div>
+                    <div id="match-time-minute">
+                        <input type="number" name="match-time-minite" id="match-time-minute-input" class="new-match-input">
+                        <label for="match-time-minute-input" id="match-time-minute-label" class="new-match-label">分</label>
+                    </div>
+                </div>
+
+                <div id="match-type-count-area">
+                    <div id="match-type-count">
+                        <input type="number" name="match-count-input" id="match-count-input" class="new-match-input">
+                        <label for="match-count-input" id="match-count-label" class="new-match-label">問</label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="match-sub-container">
+                <div class="match-sub-container-title">参加形態</div>
+                <select name="match-participation-type" id="match-participation-type" class="new-match-select">
+                    <option value="individual">個人戦</option>
+                    <option value="team">団体戦</option>
+                </select>
+            </div>
+
+            <div class="match-sub-container">
+                <div class="match-sub-container-title">問題難易度</div>
+                <div id="match-level-buttons">
+                    <button id="level-1" class="match-level-button" onclick="toggleLevel(1);">1</button>
+                    <button id="level-2" class="match-level-button" onclick="toggleLevel(2);">2</button>
+                    <button id="level-3" class="match-level-button" onclick="toggleLevel(3);">3</button>
+                </div>
+
+            </div>
+
+            <div class="match-sub-container">
+                <button id="create-new-room-button" onclick="sendNewRoomSetting();">作成</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="match.css">
+<link rel="stylesheet" href="new_room.css">
+
+<script src="match_common.js"></script>
+<script src="new_room.js"></script>
+
+<script>
+    changeMatchType();
+</script>
+{% endblock %}

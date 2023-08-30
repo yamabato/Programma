@@ -1,0 +1,108 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div id="match-wait">
+    <div id="match-id-title">-----</div>
+
+    <div id="match-wait-content">
+
+        <div id="match-wait-info-area">
+            <div id="match-wait-info-container">
+                <div id="match-wait-info-title">部屋情報</div>
+
+                <div class="match-wait-info-section">
+                    <div class="info-section-title">
+                        <span class="material-symbols-outlined info-section-icon">signature</span>
+                        <span class="info-section-label">部屋名</span>
+                    </div>
+                    <div class="info-section-content" id="match-room-name">-</div>
+                </div>
+
+                <div class="match-wait-info-section">
+                    <div class="info-section-title">
+                        <span class="material-symbols-outlined info-section-icon">code</span>
+                        <span class="info-section-label">部屋コード</span>
+                    </div>
+                    <div class="info-section-content" id="match-id">-----</div>
+                </div>
+
+                <div class="match-wait-info-section">
+                    <div class="info-section-title">
+                        <span class="material-symbols-outlined info-section-icon">person</span>
+                        <span class="info-section-label">主催者</span>
+                    </div>
+                    <div class="info-section-content" id="match-organizer">-</div>
+                </div>
+
+                <div class="match-wait-info-section">
+                    <div class="info-section-title">
+                        <span class="material-symbols-outlined info-section-icon">swords</span>
+                        <span class="info-section-label">タイプ</span>
+                    </div>
+                    <div class="info-section-content" id="match-type">-</div>
+                </div>
+
+                <div class="match-wait-info-section" id="info-time-section">
+                    <div class="info-section-title">
+                        <span class="material-symbols-outlined info-section-icon">timer</span>
+                        <span class="info-section-label">制限時間</span>
+                    </div>
+                    <div class="info-section-content" id="match-time">-</div>
+                </div>
+
+                <div class="match-wait-info-section" id="info-count-section">
+                    <div class="info-section-title">
+                        <span class="material-symbols-outlined info-section-icon">list</span>
+                        <span class="info-section-label">問題数</span>
+                    </div>
+                    <div class="info-section-content" id="match-problem-count">-</div>
+                </div>
+
+                <div class="match-wait-info-section">
+                    <div class="info-section-title">
+                        <span class="material-symbols-outlined info-section-icon">groups</span>
+                        <span class="info-section-label">参加形態</span>
+                    </div>
+                    <div class="info-section-content" id="match-participation-type">-</div>
+                </div>
+
+                <div class="match-wait-info-section">
+                    <div class="info-section-title">
+                        <span class="material-symbols-outlined info-section-icon">steppers</span>
+                        <span class="info-section-label">レベル</span>
+                    </div>
+                    <div class="info-section-content" id="match-problem-level">
+                        <div class="info-section-level" id="info-section-level-1">1</div>
+                        <div class="info-section-level" id="info-section-level-2">2</div>
+                        <div class="info-section-level" id="info-section-level-3">3</div>
+                    </div>
+                </div>
+
+                <button id="match-start-button" onclick="startMatch();">開始</button>
+
+            </div>
+        </div>
+
+        <div id="match-wait-participants-area">
+            <div id="match-wait-participants-container">
+                <div id="match-wait-participants-title">参加者一覧</div>
+
+                <div id="match-wait-participants">
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<link rel="stylesheet" href="match_wait.css">
+
+<script src="match_common.js"></script>
+<script src="match_wait.js"></script>
+<script>
+    setMatchInfo();
+    showParticipantList();
+</script>
+{% endblock %}

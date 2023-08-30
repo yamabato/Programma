@@ -1,0 +1,190 @@
+#title{
+    font-family: 'Roboto Mono', monospace;
+}
+
+.index-page-container{
+    width: 100%;
+    height: 100%;
+    background-color: #f0ffff;
+    display: flex;
+}
+
+.index-sidebar{
+    background: linear-gradient(#4d5aaf, #0095d9);
+    width: 15%;
+    height: 100%;
+    padding-right: 5px;
+    padding: 20px 0px 0px 0px;
+    border-right: solid 5px #708090;
+}
+
+.index-main-content{
+    width: 85%;
+    height: 100%;
+}
+
+.index-learn, .index-match, .index-game{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.index-learn{
+    background: linear-gradient(#bbc8e6, #84a2d4);
+}
+
+.index-match{
+    background: linear-gradient(#fdeff2, #f8b862);
+}
+
+.index-game{
+    background: linear-gradient(#d6e9ca , #d8e698 );
+}
+
+.sidebar-menu-item{
+    width: 100%;
+    height: 2rem;
+    font-size: 1.5rem;
+    background: linear-gradient(to right, rgba(187, 200, 230, 0.6), rgba(0, 0, 0, 0));
+    margin: 0px 0px 20px 0px;
+    padding: 5px;
+}
+
+.sidebar-menu-item:hover{
+    background: linear-gradient(to right, rgba(90, 121, 186, 0.8), rgba(0, 0, 0, 0));
+    filter: drop-shadow(0 0 10px #99ccff);
+    border-left: solid 5px #1e50a2;
+}
+
+.item-title-learn, .item-title-match, .item-title-game{
+    font-size: 50px;
+    text-align: center;
+    padding-top: 20px;
+    margin-bottom: 50px;
+}
+
+.item-title-learn{
+    background-color: rgba(62, 98, 173, 0.6);
+    /*filter: drop-shadow(20px 20px 10px #19448e);*/
+}
+
+.item-title-match{
+    background-color: rgba(240, 131, 0, 0.6);
+    /*filter: drop-shadow(20px 20px 10px #f08300);*/
+}
+
+.item-title-game{
+    background-color: rgba(184, 210, 0, 0.6);
+    /*filter: drop-shadow(20px 20px 10px #82ae46);*/
+}
+
+.text-comming-soon{
+    font-size: 50px;
+    font-family: 'Roboto Mono', monospace;
+    text-align: center;
+}
+.lectures-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.lectures-list-chapter{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.lectures-list-chapter-title{
+    background-color: rgba(103, 69, 152, 0.4);
+    filter: drop-shadow(0px 0px 10px #884898);
+    font-size: 40px;
+    margin-top: 50px;
+    padding: 0px 20px 0px 20px;
+    width: 40%;
+}
+
+.lectures-list-section-title, .lectures-list-section-title-cleared{
+    height: 0px;
+    visibility: hidden;
+    font-size: 0px;
+    display: block;
+}
+
+.lectures-list-section-title.is-open{
+    background-color: rgba(103, 69, 152, 0.2);
+    font-size: 30px;
+    margin: 20px 0px 20px 0px;
+    height: 50px;
+    visibility: visible;
+
+    transition:
+      height .3s ease-out,
+      font-size .3s ease-out,
+      visibility .3s linear;
+}
+
+i{
+    margin: 0px 5px 0px 0px;
+}
+
+.lectures-list-section-title-cleared.is-open{
+    background-color: rgba(76, 108, 179, 0.2);
+    font-size: 30px;
+    margin: 20px 0px 10px 0px;
+    height: 50px;
+    visibility: visible;
+
+    transition:
+      height .3s ease-out,
+      font-size .3s ease-out,
+      visibility .3s linear;
+}
+
+.lectures-list-sections{
+    height: 0;
+    visibility: hidden;
+
+    transition:
+      height .4s linear,
+      visibility .3s linear;
+}
+.lectures-list-sections.is-open{
+    height: auto;
+    visibility: visible;
+
+    transition:
+      height .3s ease-out,
+      visibility .4s linear;
+}
+
+.icon-list-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.icon-list-item-container{
+    width: 40%;
+    margin: 20px 0px 20px 0px;
+}
+.icon-list-item-container.match{
+    background-color: rgba(255, 165, 0, 0.6);
+}
+.icon-list-item-container.game{
+    background-color: rgba(173, 255, 47, 0.6);
+}
+.icon-list-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+.material-symbols-outlined.icon-list-item-icon{
+    font-size: 40px;
+    margin-right: 20px;
+}
+.icon-list-item-label{
+    font-size: 40px;
+}

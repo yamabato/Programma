@@ -1,0 +1,62 @@
+body{
+    overflow-y: auto;
+}
+.match-body{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 30px;
+}
+
+.m{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.match-content-area{
+}
+.new-match-select{
+    font-size: 25px;
+    border: none;
+}
+
+
+#match-type-time, #match-type-count-area{
+    display: flex;
+    margin-top: 20px;
+}
+.new-match-input{
+    font-size: 20px;
+    font-family: 'Roboto Mono', monospace;
+    width: 50px;
+}
+#match-room-name-input, #match-room-password-input, #match-room-nickname-input{
+    font-family: 'M PLUS 1p', sans-serif;
+    width: 200px;
+}
+
+.new-match-label{
+    font-size: 20px;
+    margin: 0px 20px 0px 0px;
+}
+
+#match-level-buttons{
+    display: flex;
+}
+
+.match-level-button{
+    font-size: 20px;
+    margin: 0px 10px;
+    border: none;
+}
+.match-level-button.on{
+    background-color: #f39800;
+}
+
+#create-new-room-button{
+    margin-top: 20px;
+    font-size: 30px;
+    border: none;
+}

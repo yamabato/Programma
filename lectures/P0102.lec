@@ -1,0 +1,41 @@
+TITLE: 1-2 最初の一歩
+
+LECTURE:
+
+PRG:
+PLN: プログラミングを始める時"Hello World!"という文字列を表示させるのが慣習となっています。
+PLN: 我々も、プログラミング最初の一歩として"Hello World!"を表示させてみましょう。
+EPR:
+
+NLN:
+
+PRG:
+PLN: Pythonでは、
+COD: print("Hello World!")
+PLN: を実行することで、"Hello World!"と表示させることができます。
+EPR:
+
+NLN:
+
+PRG:
+PLN: 右側のエディタでプログラムを編集し、実行ボタンを押すことで"Hello World!"と表示させてみましょう。
+PLN: 出力は画面下部の白い部分に表示されます。
+EPR:
+
+TASK:
+STMT:
+
+PRG:
+PLN: 文字列
+COD: Hello World!
+PLN: を出力せよ。
+EPR:
+
+ESTMT:
+
+CASE:
+OUTPUT: Hello::[SPACE];World!::[NEWLINE];
+ECASE:
+
+CODE:
+# print("Hello World!")を実行してみましょう

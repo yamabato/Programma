@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="cover" id="cover" hidden>
+</div>
+<div id="lecture-page">
+    <div id="lecture-tab-area">
+        <div onclick="changeTab(0)" class="lecture-tab lecture-description-tab-selected" id="lecture-description-tab"><span class="lecture-tab-label">説明</span></div>
+        <div onclick="changeTab(1)" class="lecture-tab lecture-task-tab-not-selected" id="lecture-task-tab"><span class="lecture-tab-label">課題</span></div>
+        <button id="back-btn" class="back-btn" onclick="askBackToMainPage();">戻る</button>
+    </div>
+
+    <div id="lecture-description-area" hidden>
+        {{ lecture_html | safe }}
+    </div>
+
+    <div id="lecture-task-area">
+        {{ task_html | safe }}
+    </div>
+
+    <div id="lecture-code-editor-area">
+    </div>
+
+    <div id="lecture-buttons">
+        <button id="run-btn" class="run-btn" onclick="runPythonProgram();">実行</button>
+        <button id="check-btn" class="check-btn" onclick="checkPythonProgram();">提出</button>
+    </div>
+
+    <br>
+
+    <div id="lecture-output-area">
+        <div id="lecture-output-title">出力</div>
+    </div>
+
+    <div class="popup" id="lecture-popup" hidden>
+        <div class="popup-container">
+            <div id="popup-content">
+
+            </div>
+            <button class="popup-close-button" onclick="hidePopup();">閉じる</button>
+        </div>
+    </div>
+
+    <div class="popup" id="lecture-ask-popup" hidden>
+        <div class="popup-container">
+            <div id="popup-content">
+                <div class="lecture-popup-finish-title">終了</div>
+                <div class="lecture-popup-text">メインページに戻りますか?</div>
+            </div>
+            <button class="popup-yes-button" onclick="backToMainPage();">はい</button>
+            <button class="popup-no-button" onclick="closeAskBack();">いいえ</button>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ace.js"></script>
+
+<link rel="stylesheet" href="lecture.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&family=Zen+Kaku+Gothic+Antique:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&family=Roboto+Mono&family=Zen+Kaku+Gothic+Antique:wght@300;400&display=swap" rel="stylesheet">
+
+<script type="text/javascript" src="runProgram.js"></script>
+<script type="text/javascript" src="lecture.js"></script>
+
+<script>
+    const editor = ace.edit("lecture-code-editor-area")
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/python");
+    editor.session.insert(editor.selection.getCursor(), `{{ initial_code | safe}}`);
+    editor.setFontSize(18);
+    editor.$blockScrolling = Infinity;
+    editor.setOptions({
+        fontFamily: "Roboto Mono"
+    });
+
+    changeTab(0);
+    hidePopup();
+</script>
+{% endblock %}

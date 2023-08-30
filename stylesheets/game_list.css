@@ -1,0 +1,26 @@
+.game-list-main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #d6e9ca;
+    overflow: auto;
+}
+
+.game-list-container{
+    margin-top: 50px;
+    width: 50%;
+    text-align: center;
+    background-color: #769164;
+    padding: 20px;
+}
+
+.game-list-item-text{
+    display: block;
+    font-size: 50px;
+    background-color: #e0ebaf;
+    margin: 20px 0px;
+    text-decoration: none;
+    color: black;
+}

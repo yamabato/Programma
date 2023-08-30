@@ -1,0 +1,25 @@
+#enter-info-input-area{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.enter-input-item{
+    margin: 10px 0px;
+}
+
+.enter-input{
+    font-size: 20px;
+}
+
+.enter-label{
+    font-size: 20px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+#enter-button{
+    margin-top: 20px;
+    font-size: 30px;
+    border: none;
+}

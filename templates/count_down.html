@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Programma</title>
+
+        <link rel="stylesheet" href="count_down.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <div id="count-down-main">
+            <div id="count-down-label">対戦開始まで...</div>
+            <div id="count-down">
+                <div id="count-down-second">5</div>
+                <div id="count-down-unit">秒</div>
+            </div>
+        </div>
+
+        <script src="count_down.js"></script>
+        <script>
+            const start = {{ start }};
+            window.setInterval(function(){
+                countDown();
+            }, 500);
+        </script>
+    </body>
+</html>

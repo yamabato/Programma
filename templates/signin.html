@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Programma - ログイン</title>
+        <link rel="stylesheet" href="authorication.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&family=Noto+Sans+JP&family=Roboto+Mono&family=Zen+Kaku+Gothic+Antique:wght@300;400&display=swap" rel="stylesheet">
+    </head>
+
+    <body class="grid-pattern">
+        <div class="register-button" onclick="location.href='https://programma.pythonanywhere.com/signup'">登録</div>
+
+        <div class="authorication-page-container">
+            <div class="authorication-page-contents">
+                <div class="programma-title">Programma</div>
+
+
+                <div class="signin-errmsg" id="signin-errmsg"></div>
+
+                <div class="authorication-input-area">
+                    <div class="username-input-area">
+                        <label for="username" class="username-label">Username</label>
+                        <input type="text" name="username" id="username" class="username-input" required>
+                    </div>
+                    <div class="password-input-area">
+                        <label for="password" class="password-label">Password</label>
+                        <input type="password" name="password" id="password" class="password-input" required>
+                    </div>
+
+                    <button id="signin-button" class="signin-button" onclick="signin();">Sign in</button>
+                </div>
+
+            </div>
+        </div>
+
+
+        <script src="signin.js"></script>
+
+    </body>
+</html>

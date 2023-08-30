@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div id="game-main">
+    <div id="game-info-area">
+        <div class="game-info-title">まるばつゲーム</div>
+        <div class="game-info-section">ルール</div>
+        <div class="game-info-text">ルールルールルールルールルールルールルールルールルールルールルールルールルールルールルールルールルールルールルールルールルールルールルールルールルールルールルールルールルール</div>
+        <div class="game-info-section">入力形式</div>
+        <div class="game-info-text"><span class="game-info-code">Code Sample</span></div>
+        <div class="game-info-section">出力形式</div>
+    </div>
+
+    <div id="game-button-area">
+        <button class="game-home-button">ホーム</button>
+    </div>
+
+    <div id="game-editor-area">
+    </div>
+
+    <div id="game-run-button-area">
+        <button class="game-run-button">実行</button>
+        <button class="game-match-button">対戦</button>
+    </div>
+
+    <div id="game-output-area">
+        <div class="game-output-title">出力</div>
+
+        <div id="output-container">
+            <div class="game-output-text">Output</div>
+            <div class="game-output-error">Error</div>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="game.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ace.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&family=Roboto+Mono&family=Zen+Kaku+Gothic+Antique:wght@300;400&display=swap" rel="stylesheet">
+
+<script>
+    const editor = ace.edit("game-editor-area")
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/python");
+    editor.session.insert(editor.selection.getCursor(), `{{ initial_code | safe}}`);
+    editor.setFontSize(18);
+    editor.$blockScrolling = Infinity;
+    editor.setOptions({
+        fontFamily: "Roboto Mono"
+    });
+</script>
+{% endblock %}

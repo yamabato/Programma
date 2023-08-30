@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="match-body">
+    <div class="match-content-area">
+        <div id="match-err-msg"></div>
+
+        <div class="match-content-container">
+            <div class="match-container-title">対戦に参加</div>
+
+            <div class="match-sub-container">
+                <div class="match-sub-container-title">部屋情報</div>
+
+                <div id="enter-info-input-area">
+                    <div class="enter-input-item">
+                        <label for="enter-id-input" class="enter-label">部屋コード</label>
+                        <input type="text" name="enter-id-input" id="enter-id-input" class="enter-input">
+                    </div>
+
+                    <div class="enter-input-item">
+                        <label for="enter-password-input" class="enter-label">パスワード</label>
+                        <input type="password" name="enter-password-input" id="enter-password-input" class="enter-input">
+                    </div>
+                </div>
+            </div>
+
+            <div class="match-sub-container">
+                <div class="match-sub-container-title">参加者情報</div>
+                <div class="enter-input-item">
+                    <label for="enter-nickname-input" class="enter-label">表示名</label>
+                    <input type="text" name="enter-nickname-input" id="enter-nickname-input" class="enter-input">
+                </div>
+            </div>
+
+            <div class="match-sub-container">
+                <button id="enter-button" onclick="sendEnterData();">入室</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="match.js"></script>
+<script src="enter.js"></script>
+
+<link rel="stylesheet" href="match.css">
+<link rel="stylesheet" href="enter_room.css">
+{% endblock %}

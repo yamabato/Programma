@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="index-page-container">
+    <div class="index-sidebar">
+        <div class="sidebar-menu-item index-menu-learn" onclick="changeItem(0);">学習</div>
+        <div class="sidebar-menu-item index-menu-battle" onclick="changeItem(1);">対戦</div>
+        <div class="sidebar-menu-item index-menu-game" onclick="changeItem(2);">ゲーム</div>
+    </div>
+
+    <div class="index-main-content">
+        <div id="index-learn" class="index-learn">
+            <div class="item-title-learn">学習</div>
+            <div id="lectures-list" class="lectures-list">
+            </div>
+        </div>
+
+        <div id="index-match" class="index-match" style="display: none;">
+            <div class="item-title-match">対戦</div>
+            <div class="icon-list-section">
+                <div class="icon-list-item-container match">
+                    <a class="icon-list-item" href="/new">
+                        <div class="material-symbols-outlined icon-list-item-icon">add</div>
+                        <div class="icon-list-item-label">作成</div>
+                    </a>
+                </div>
+                <div class="icon-list-item-container match">
+                    <a class="icon-list-item" href="/enter">
+                        <div class="material-symbols-outlined icon-list-item-icon">login</div>
+                        <div class="icon-list-item-label">入室</div>
+                    </a>
+                </div>
+                <!--
+                <div class="icon-list-item-container match">
+                    <a class="icon-list-item" href="/find">
+                        <div class="material-symbols-outlined icon-list-item-icon">search</div>
+                        <div class="icon-list-item-label">探す</div>
+                    </a>
+                </div>
+                -->
+            </div>
+        </div>
+
+        <div id="index-game" class="index-game" style="display: none;">
+            <div class="item-title-game">ゲーム</div>
+            <div class="icon-list-section">
+                <div class="icon-list-item-container game">
+                    <a class="icon-list-item" href="/table">
+                        <div class="material-symbols-outlined icon-list-item-icon">swords</div>
+                        <div class="icon-list-item-label">対戦ゲーム</div>
+                    </a>
+                </div>
+                <div class="icon-list-item-container game">
+                    <a class="icon-list-item" href="/pencil">
+                        <div class="material-symbols-outlined icon-list-item-icon">border_color</div>
+                        <div class="icon-list-item-label">ペンシルパズル</div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="index.css">
+<script src="index.js"></script>
+
+<script>
+    makeLectureList();
+    changeItem(0);
+</script>
+
+{% endblock %}
