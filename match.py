@@ -201,7 +201,11 @@ def start_match(match_id, match_key):
     match_data["solved"] = {name: [] for name in participants}
     match_data["problem_number"] = {name: -1 for name in participants}
     match_data["surrender"] = {name: False for name in participants}
-    match_data["clear_time"] = {name: math.inf for name in participants}
+
+    if room_setting["type"] == "time":
+        match_data["clear_time"] = {name: room_setting["hour"]*3600+room_setting["minute"]*60 for name in participants}
+    else:
+        match_data["clear_time"] = {name: math.inf for name in participants}
 
     save_match_data(match_data, match_id)
 
@@ -387,13 +391,15 @@ def generate_ranking_html(match_id, match_key, username):
     user_rank = ""
     clear_timestamp = -1
     surrender = False
+    solved = []
 
     rank_class = ""
     for user, rank in ranking:
         if rank <= 3:
             rank_class = f"rank{rank}"
         nickname = participants[user][0]
-        solved_count = problem_number_data[user] + 1
+        solved = match_data["solved"][user]
+        solved_count = len(solved) - solved.count(-1)
         clear_timestamp = clear_time_data[user]
         if clear_timestamp == math.inf:
             clear_time = "-"
