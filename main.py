@@ -221,8 +221,8 @@ def match_next_problem():
     match_id = request.args.get("id", "")
     match_key = request.args.get("key", "")
 
-    ok, problem_html = return_match_next_problem(match_id, match_key, username)
-    return {"ok": ok, "problem_html": problem_html}
+    ok, problem_html, rest = return_match_next_problem(match_id, match_key, username)
+    return {"ok": ok, "problem_html": problem_html, "rest": rest}
 
 @app.route("/finished", methods=["GET"])
 def match_finished():

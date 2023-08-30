@@ -235,7 +235,7 @@ def get_problem_html(problem_id):
     return problem_html
 
 def return_match_next_problem(match_id, match_key, username):
-    if not check_match_key(match_id, match_key): return False, ""
+    if not check_match_key(match_id, match_key): return False, "", -1
 
     match_data = get_match_data(match_id)
     problems = match_data["problems"]
@@ -256,7 +256,11 @@ def return_match_next_problem(match_id, match_key, username):
 
     save_match_data(match_data, match_id)
 
-    return True, problem_html
+    solved = match_data["solved"][username]
+    match_problem_count = match_data["room_setting"]["count"]
+    rest = match_problem_count - (len(solved)-solved.count(-1))
+
+    return True, problem_html, rest
 
 def generate_match_cases(match_id, username):
     match_data = get_match_data(match_id)

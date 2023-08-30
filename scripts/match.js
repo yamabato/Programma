@@ -78,6 +78,8 @@ function setNextProblem(){
         }
         else{
             document.getElementById("match-info-problem").innerHTML = data["problem_html"];
+            localStorage["restProb"] = data["rest"];
+            showRest();
         }
     });
 }
@@ -199,6 +201,12 @@ function showRest(){
         }
         else{
             restText = "残り -:-:-";
+        }
+    }
+    else if(matchType == "count"){
+        restProb = localStorage["restProb"];
+        if (restProb != undefined){
+            restText = `残り ${restProb}問`;
         }
     }
     document.getElementById("match-rest").innerHTML = restText;
