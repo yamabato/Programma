@@ -138,5 +138,6 @@ function setMatchInfo(){
 }
 
 window.setInterval(function(){
+    showParticipantList();
     isStarted();
 }, 5000);
