@@ -103,7 +103,6 @@ def enter_room(enter_info):
     if not match_id_exists(match_id):
         return False, {}, "", "部屋が存在しません。"
 
-
     match_data = get_match_data(match_id)
 
     if generate_hash(password) != match_data["room_setting"]["room_password"]:
@@ -113,7 +112,7 @@ def enter_room(enter_info):
         return False, {}, "", "既に入室しています。"
 
     append_participant(username, nickname, nickname, match_id)
-    match_key = create_match_key()
+    match_key = create_match_key(match_id)
 
     return True, match_data["room_setting"], match_key, ""
 
