@@ -128,6 +128,7 @@ function submitMatchProgram(){
         document.getElementById("match-cover").style.display = "block";
         if (data["correct"]){
             document.getElementById("match-cover-correct").style.display = "flex";
+            isFinished();
         }
         else{
             document.getElementById("match-cover-incorrect").style.display = "flex";
@@ -138,6 +139,8 @@ function submitMatchProgram(){
 
 function isFinished(){
 
+    matchID = localStorage["matchID"];
+    matchKey = localStorage["matchKey"];
     fetch(`https://programming.pythonanywhere.com/finished?id=${matchID}&key=${matchKey}`, {
         method: "GET",
         headers: {
@@ -151,10 +154,17 @@ function isFinished(){
     }).then((data)  => {
         if (data["ok"]){
             if (data["finished"]){
+                closePopUp();
                 document.getElementById("match-cover").style.display = "block";
                 document.getElementById("match-cover-finish").style.display = "flex";
             }
         }
     }).catch((error) => {
     });;
+}
+
+function toResultPage(){
+    matchID = localStorage["matchID"];
+    matchKey = localStorage["matchKey"];
+    location.href = `/result?id=${matchID}&key=${matchKey}`;
 }

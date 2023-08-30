@@ -41,6 +41,9 @@
 .match-ranking-table-row{
     font-size: 40px;
 }
+.match-ranking-table-row.surrender{
+    background-color: #e9e4d4 ;
+}
 .match-ranking-table-th{
     text-align: center;
     border-bottom: 2px double #eb6101;

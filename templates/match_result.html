@@ -5,8 +5,8 @@
     <div id="match-name">MATCH1</div>
 
     <div id="match-user-rank">
-        <div id="match-username">Taro</div>
-        <div id="match-rank">#1</div>
+        <div id="match-username">{{ nickname }}</div>
+        <div id="match-rank">#{{ rank }}</div>
     </div>
 
     <div id="match-ranking-area">
@@ -17,6 +17,8 @@
                 <th class="match-ranking-table-th">問題数</th>
                 <th class="match-ranking-table-th">時間</th>
             </tr>
+            {{ ranking_html | safe}}
+            <!--
 
             <tr class="match-ranking-table-row">
                 <td class="match-ranking-table-td rank1">#1</td>
@@ -36,12 +38,25 @@
                 <td class="match-ranking-table-td rank3">12</td>
                 <td class="match-ranking-table-td rank3">2:00:10</td>
             </tr>
-            <tr class="match-ranking-table-row">
+            <tr class="match-ranking-table-row surrender">
                 <td class="match-ranking-table-td">#4</td>
                 <td class="match-ranking-table-td">Siro</td>
                 <td class="match-ranking-table-td">5</td>
                 <td class="match-ranking-table-td">2:00:10</td>
             </tr>
+            <tr class="match-ranking-table-row">
+                <td class="match-ranking-table-td">(#5)</td>
+                <td class="match-ranking-table-td">Garo</td>
+                <td class="match-ranking-table-td">3</td>
+                <td class="match-ranking-table-td">2:00:10</td>
+            </tr>
+            <tr class="match-ranking-table-row">
+                <td class="match-ranking-table-td">#6</td>
+                <td class="match-ranking-table-td">RokuRo</td>
+                <td class="match-ranking-table-td">1</td>
+                <td class="match-ranking-table-td">2:00:10</td>
+            </tr>
+            -->
         </table>
     </div>
 
@@ -51,5 +66,6 @@
     </div>
 </div>
 
+<script src="match_result.js"></script>
 <link rel="stylesheet" href="match_result.css">
 {% endblock %}

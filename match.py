@@ -1,4 +1,5 @@
 import os
+import math
 import random
 from collections import defaultdict
 
@@ -60,6 +61,7 @@ def create_match_data_file(username, match_id, room_setting):
         "problem_number": {},
         "surrender": {},
         "ending_time": -1,
+        "clear_time": {},
     }
 
     match_data_path = make_match_data_path(match_id)
@@ -185,6 +187,7 @@ def start_match(match_id, match_key):
     match_data["solved"] = {name: [] for name in participants}
     match_data["problem_number"] = {name: -1 for name in participants}
     match_data["surrender"] = {name: False for name in participants}
+    match_data["clear_time"] = {name: math.inf for name in participants}
 
     save_match_data(match_data, match_id)
 
@@ -262,6 +265,13 @@ def check_match_program(match_id, username, program):
             solved += [-1] * (problem_number - len(solved) + 1)
         solved[problem_number] = get_now_timestamp()
         match_data["problem_number"][username] += 1
+
+        room_setting = match_data["room_setting"]
+        if room_setting["type"] == "count":
+            match_problem_count = int(room_setting["count"])
+            if problem_number + 1 >= match_problem_count:
+                match_data["clear_time"][username] = get_now_timestamp() - match_data["start"]
+
         save_match_data(match_data, match_id)
 
     return correct, stdout_text, stderr_text
@@ -285,7 +295,7 @@ def is_finished(match_id, match_key, username):
         problem_number = match_data["problem_number"][username]
         match_problem_count = int(room_setting["count"])
 
-        if problem_number >= match_problem_count:
+        if problem_number + 1 >= match_problem_count:
             finished = True
     else:
         surrendered = list(match_data["surrender"].values())
@@ -295,3 +305,94 @@ def is_finished(match_id, match_key, username):
             finished = True
 
     return True, finished
+
+def rank_numbering(ranked_list, data):
+    last = ""
+    rank = 1
+    rank_numbered_list = []
+    for n, user in enumerate(ranked_list):
+        if last in data and data[user] != data[last]:
+            rank = n + 1
+        rank_numbered_list.append((user, rank))
+
+    return rank_numbered_list
+
+def get_ranking(match_id):
+    match_data = get_match_data(match_id)
+    room_setting = match_data["room_setting"]
+    match_type = room_setting["type"]
+
+    participants = match_data["participants"].keys()
+    problem_number_data = match_data["problem_number"]
+    clear_time_data = match_data["clear_time"]
+
+
+    if match_type == "time":
+        ranking = sorted(participants , key=lambda x: problem_number_data[x], reverse=True)
+        sort_data = {user: str(problem_number_data[user]) for user in participants}
+    elif match_type == "count":
+        solved_problems_ranking = sorted(participants, key=lambda x: problem_number_data[x], reverse=True)
+        ranking = sorted(solved_problems_ranking, key=lambda x: clear_time_data[x])
+        sort_data = {user: str(clear_time_data[user])+str(problem_number_data[user]) for user in participants}
+    else:
+        clear_time_ranking = sorted(participants, key=lambda x: clear_time_data[x])
+        ranking = sorted(clear_time_ranking, key=lambda x: problem_number_data[x])
+        sort_data = {user: str(clear_time_data[user])+str(problem_number_data[user]) for user in participants}
+
+    rank_numbered_list = rank_numbering(ranking, sort_data)
+
+    return rank_numbered_list
+
+def format_timestamp(timestamp):
+    hour = 0
+    minute = 0
+    second = 0
+
+    hour = int(timestamp // (60*60))
+    minute = int(timestamp // (60*60) % 60)
+    second = int(timestamp % 60 // 1)
+
+    return f"{hour:02}:{minute:02}:{second:02}"
+
+def generate_ranking_html(match_id, match_key, username):
+    if not check_match_key(match_id, match_key): return False, "", "", -1
+
+    html = ""
+
+    ranking = get_ranking(match_id)
+
+    match_data = get_match_data(match_id)
+    problem_number_data = match_data["problem_number"]
+    clear_time_data = match_data["clear_time"]
+    surrender_data = match_data["surrender"]
+    participants = match_data["participants"]
+
+    user_nickname = ""
+    user_rank = ""
+
+    rank_class = ""
+    for user, rank in ranking:
+        if rank <= 3:
+            rank_class = f"rank{rank}"
+        nickname = participants[user][0]
+        solved_count = problem_number_data[user] + 1
+        clear_time = format_timestamp(clear_time_data[user])
+
+        html += """<tr class="match-ranking-table-row">"""
+        html += f"""<td class="match-ranking-table-td {rank_class}">#{rank}</td>"""
+        html += f"""<td class="match-ranking-table-td {rank_class}">{nickname}</td>"""
+        html += f"""<td class="match-ranking-table-td {rank_class}">{solved_count}</td>"""
+        html += f"""<td class="match-ranking-table-td {rank_class}">{clear_time}</td>"""
+        html += "</tr>"
+
+        if user == username:
+            user_nickname = nickname
+            user_rank = rank
+
+    return True, html, user_nickname, user_rank
+
+
+
+
+
+
