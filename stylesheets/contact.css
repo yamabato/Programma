@@ -63,6 +63,17 @@
         box-shadow 0.3s;
 }
 
+#contact-form-msg, #contact-form-errmsg{
+    font-size: 20px;
+}
+#contact-form-msg{
+    color: black;
+}
+
+#contact-form-errmsg{
+    color: #ba2636;
+}
+
 #contact-submit-button{
     font-size: 20px;
     padding: 5px 20px;

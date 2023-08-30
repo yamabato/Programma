@@ -3,6 +3,7 @@ import json
 
 from lecture import generate_lecture_html, generate_task_cases_data, get_lectures_data
 from program import check_python_program, get_python_program_output
+from contact import record_contact
 from match import make_new_room, enter_room, get_participant_list, start_match, is_started, return_match_next_problem, check_match_program, is_finished, generate_ranking_html
 from user import signup, signin, check_auto_signin, record_cleared_task
 
@@ -40,6 +41,19 @@ def return_lectures_data():
             return lectures_data
         else:
             return {"ok": False}
+
+@app.route("/contact", methods=["POST"])
+def receive_contact_content():
+    if request.method == "POST":
+        ok, username = get_username()
+        if ok:
+            posted_data_json = get_posted_data()
+            contact_content = posted_data_json["content"]
+            contact_type = posted_data_json["type"]
+
+            ok = record_contact(username, contact_content, contact_type)
+
+            return {"ok": ok}
 
 @app.route("/registered")
 def registered_page():
