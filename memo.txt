@@ -7,7 +7,7 @@
 ・pythonコードを通して破壊行為を行える
     ファイルの読み書きを防止する必要あり
 ・問題数の不足
-
+・ドキュメント整理
 
 #追加する機能
 
@@ -20,7 +20,6 @@
 ・対戦履歴を保存、表示する
 ・お知らせ機能
 ・管理者用ページが必要
-・お問い合わせページ
 ・アプリ情報ページ
 ・アカウントページ
 
@@ -35,3 +34,42 @@
 ・クロスワード
 
 #処理済み
+・お問い合わせページ
+
+#FAQ html
+<div class="contact-question-container">
+    <div class="contact-question-title">
+        <span class="material-symbols-outlined contact-question">chat</span>
+        <h1 class="contact-question-title-text">何かしらの問い合わせタイトル|苦情の例</h1>
+    </div>
+
+    <div class="contact-question-answer">問い合わせに対する返事。ああああああああああああああああああああああああ</div>
+</div>
+
+<div class="contact-question-container">
+    <div class="contact-question-title">
+        <span class="material-symbols-outlined contact-question">forum</span>
+        <h1 class="contact-question-title-text">何かしらの問い合わせタイトル|要望の例</h1>
+    </div>
+
+    <div class="contact-question-answer">問い合わせに対する返事。ああああああああああああああああああああああああ</div>
+</div>
+
+<div class="contact-question-container">
+    <div class="contact-question-title">
+        <span class="material-symbols-outlined contact-question">contact_support</span>
+        <h1 class="contact-question-title-text">何かしらの問い合わせタイトル|質問の例</h1>
+    </div>
+
+    <div class="contact-question-answer">問い合わせに対する返事。ああああああああああああああああああああああああ</div>
+</div>
+
+<div class="contact-question-container">
+    <div class="contact-question-title">
+        <span class="material-symbols-outlined contact-question">chat_bubble</span>
+        <h1 class="contact-question-title-text">何かしらの問い合わせタイトル|その他の例だだだだだ</h1>
+    </div>
+
+    <div class="contact-question-answer">問い合わせに対する返事。ああああああああああああああああああああああああ</div>
+</div>
+

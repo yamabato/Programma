@@ -1,7 +1,7 @@
 from util import load_json_file, save_json_file
 
 CONTACT_DATA_PATH = "/home/programming/mysite/data/contact_data.json"
-FAQ_HTML_PATH = "/home/programming/mysite/templates/faq.html"
+FAQ_HTML_PATH = "/home/programming/mysite/data/faq.html"
 
 def record_contact(username, contact_content, contact_type):
     contact_data = load_json_file(CONTACT_DATA_PATH)
