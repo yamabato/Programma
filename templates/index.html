@@ -104,7 +104,50 @@
 
         <div id="index-app" class="index-section" style="display: none;">
             <h1 class="item-section-title">アプリ情報</h1>
-            <div class="icon-list-section">
+            <div id="index-app-page">
+
+                <h1 class="app-info-section-title">アプリについて</h1>
+                <div id="app-info-about" class="app-info-section">
+                    <h1 class="app-info-about-category">アプリ名</h1>
+                    <div class="app-info-content">Programma</div>
+
+                    <div class="app-info-separator"></div>
+
+                    <h1 class="app-info-about-category">リリース日</h1>
+                    <div class="app-info-content">2023/09/01</div>
+
+                    <div class="app-info-separator"></div>
+
+                    <h1 class="app-info-about-category">目的</h1>
+                    <div class="app-info-content">利用者のプログラミング学習に資すること。</div>
+
+                    <div class="app-info-separator"></div>
+
+                    <h1 class="app-info-about-category">対象</h1>
+                    <div class="app-info-content">・Pythonによってプログラミングに入門しようとする者。</div>
+                    <div class="app-info-content">・プログラミングを通して対戦・勝負をしたい者。</div>
+
+                    <div class="app-info-separator"></div>
+
+                    <h1 class="app-info-about-category">機能</h1>
+                    <div class="app-info-content">・Pythonに関する講義。</div>
+                    <div class="app-info-content">・Pythonを用いたプログラミング演習。</div>
+                    <div class="app-info-content">・プログラミングによる対人対戦。</div>
+                    <div class="app-info-content">・プログラミングによるペンシルゲームプレイ。</div>
+
+                </div>
+
+                <h1 class="app-info-section-title">更新履歴</h1>
+                <div id="app-info-release" class="app-info-section">
+                    <h1 class="app-info-release-date">2023/09/01</h1>
+                    <div class="app-info-content">・サービス公開</div>
+
+                </div>
+
+                <h1 class="app-info-section-title">実装予定</h1>
+                <div id="app-info-plan" class="app-info-section">
+                </div>
+
             </div>
         </div>
 
@@ -120,13 +163,14 @@
 
 <link rel="stylesheet" href="index.css">
 <link rel="stylesheet" href="contact.css">
+<link rel="stylesheet" href="app_info.css">
 
 <script src="index.js"></script>
 <script src="contact.js"></script>
 
 <script>
     makeLectureList();
-    changeItem(3);
+    changeItem(4);
 </script>
 
 {% endblock %}
