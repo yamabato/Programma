@@ -37,7 +37,8 @@ def run_python_program(program, input_text="", record_vars=[]):
     subprocess.run(["python3", program_file_name],
             stdout=open(stdout_file_name, mode="w"),
             stderr=open(stderr_file_name, mode="w"),
-            input=input_text, text=True
+            input=input_text, text=True,
+            timeout=5,
     )
 
     stderr_text = ""

@@ -10,7 +10,8 @@
 }
 
 .index-sidebar{
-    background: linear-gradient(#4d5aaf, #0095d9);
+    background: linear-gradient(#bbc8e6, #89c3eb );
+    background: linear-gradient(#a59aca, #89c3eb );
     width: 15%;
     height: 100%;
     padding-right: 5px;
@@ -28,8 +29,10 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    background: linear-gradient(#bbc8e6, #84a2d4);
 }
 
+/*
 .index-learn{
     background: linear-gradient(#bbc8e6, #84a2d4);
 }
@@ -40,7 +43,7 @@
 
 .index-game{
     background: linear-gradient(#d6e9ca , #d8e698 );
-}
+}*/
 
 .sidebar-menu-item{
     width: 100%;
@@ -53,7 +56,7 @@
 
 .sidebar-menu-item:hover{
     background: linear-gradient(to right, rgba(90, 121, 186, 0.8), rgba(0, 0, 0, 0));
-    filter: drop-shadow(0 0 10px #99ccff);
+    filter: drop-shadow(0 0 10px #4d5aaf);
     border-left: solid 5px #1e50a2;
 }
 
@@ -62,22 +65,26 @@
     text-align: center;
     padding-top: 20px;
     margin-bottom: 50px;
+    background-color: rgba(62, 98, 173, 0.6);
+    filter: drop-shadow(20px 20px 10px #19448e);
 }
 
+/*
 .item-title-learn{
     background-color: rgba(62, 98, 173, 0.6);
-    /*filter: drop-shadow(20px 20px 10px #19448e);*/
+    filter: drop-shadow(20px 20px 10px #19448e);
 }
 
 .item-title-match{
     background-color: rgba(240, 131, 0, 0.6);
-    /*filter: drop-shadow(20px 20px 10px #f08300);*/
+    filter: drop-shadow(20px 20px 10px #f08300);
 }
 
 .item-title-game{
     background-color: rgba(184, 210, 0, 0.6);
-    /*filter: drop-shadow(20px 20px 10px #82ae46);*/
+    filter: drop-shadow(20px 20px 10px #82ae46);
 }
+*/
 
 .text-comming-soon{
     font-size: 50px;
@@ -96,8 +103,8 @@
     align-items: center;
 }
 .lectures-list-chapter-title{
-    background-color: rgba(103, 69, 152, 0.4);
-    filter: drop-shadow(0px 0px 10px #884898);
+    background-color: rgba(30, 80, 162, 0.4);
+    filter: drop-shadow(0px 0px 10px #192f60);
     font-size: 40px;
     margin-top: 50px;
     padding: 0px 20px 0px 20px;
@@ -167,13 +174,16 @@ i{
 .icon-list-item-container{
     width: 40%;
     margin: 20px 0px 20px 0px;
+    background-color: rgba(30, 80, 162, 0.4);
 }
+/*
 .icon-list-item-container.match{
     background-color: rgba(255, 165, 0, 0.6);
 }
 .icon-list-item-container.game{
     background-color: rgba(173, 255, 47, 0.6);
 }
+*/
 .icon-list-item{
     display: flex;
     justify-content: center;

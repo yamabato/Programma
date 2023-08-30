@@ -28,9 +28,11 @@ h1{
     width: 100%;
     height: 5%;
     background-color: #3e62ad;
+    background-color: #507ea4;
     margin: 0px;
     padding: 0px;
-    border: solid 3px #8491c3;
+    /*border: solid 3px #8491c3;*/
+    border-bottom: solid 3px #708090;
     display: flex;
     justify-content: space-between;
 }
