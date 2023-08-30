@@ -121,6 +121,10 @@
     justify-content: flex-end;
     align-items: center;
 }
+#match-rest{
+    font-size: 20px;
+    margin-right: 20px;
+}
 #home-button, #surrender-button{
     font-size: 20px;
     margin-right: 20px;

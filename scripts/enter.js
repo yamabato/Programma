@@ -60,7 +60,7 @@ function sendEnterData(){
             matchKey = data["match_key"];
             localStorage["matchKey"] = matchKey;
             localStorage["matchID"] = matchID;
-            localStorage["matchSetting"] = JSON.parse(matchSetting);
+            localStorage["matchSetting"] = JSON.stringify(matchSetting);
             location.href = "/wait";
         }
         else{

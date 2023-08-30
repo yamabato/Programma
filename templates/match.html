@@ -25,6 +25,7 @@
     </div>
 
     <div id="buttons-area">
+        <div id="match-rest">残り -:-:-</div>
         <div id="home-button">ホーム</div>
         <div id="surrender-button">降参</div>
     </div>
@@ -124,6 +125,13 @@
     });
 
     matchChangeTab(0);
+
+    if (JSON.parse(localStorage["matchSetting"])["type"] == "time"){
+        window.setInterval(function(){
+            showRest();
+            checkRestTime();
+        }, 1000);
+    }
 
     setNextProblem();
 </script>

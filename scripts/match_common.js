@@ -1,10 +1,10 @@
 
-const matchTypeTime = "time";
-const matchTypeCount = "count";
-const matchTypeInf = "inf";
+matchTypeTime = "time";
+matchTypeCount = "count";
+matchTypeInf = "inf";
 
-const matchParticipationIndividual = "individual";
-const matchParticipationTema = "team";
+matchParticipationIndividual = "individual";
+matchParticipationTema = "team";
 
 matchTypeTable = {
     "time": "時間制",

@@ -1,7 +1,7 @@
 
-const matchTypeTime = "time";
-const matchTypeCount = "count";
-const matchTypeInf = "inf";
+matchTypeTime = "time";
+matchTypeCount = "count";
+matchTypeInf = "inf";
 
 tabs = [
     "match-problem-tab",
@@ -26,6 +26,11 @@ info = [
     "rank",
     "rule",
 ];
+
+
+function getMatchSetting(){
+    return JSON.parse(localStorage["matchSetting"])
+}
 
 function printTextInOutputArea(text){
     document.getElementById("output-container").innerHTML += `<div class="output-text">${text.replaceAll("\n", "<br>")}</div>`;
@@ -167,4 +172,42 @@ function toResultPage(){
     matchID = localStorage["matchID"];
     matchKey = localStorage["matchKey"];
     location.href = `/result?id=${matchID}&key=${matchKey}`;
+}
+
+function formatTimeStamp(timeStamp){
+    hour = String(Math.floor(timeStamp / (60*60))).padStart(2, "0");
+    minute = String(Math.floor(Math.floor(timeStamp / (60*60)) % 60)).padStart(2, "0");
+    second = String(Math.floor(timeStamp % 60)).padStart(2, "0");
+
+    return `${hour}:${minute}:${second}`;
+}
+
+function showRest(){
+    matchSetting = getMatchSetting();
+    matchType = matchSetting["type"];
+
+    restText = "";
+
+    if (matchType == "time"){
+        nowTimeStamp = Number(new Date()) / 1000;
+        endingTime = localStorage["endingTime"];
+        restTime = endingTime - nowTimeStamp;
+        if (restTime >= 0){
+            restText = `残り ${formatTimeStamp(restTime)}`;
+        }
+        else{
+            restText = "残り -:-:-";
+        }
+    }
+    document.getElementById("match-rest").innerHTML = restText;
+}
+
+function checkRestTime(){
+    nowTimeStamp = Number(new Date()) / 1000;
+    endingTime = localStorage["endingTime"];
+    restTime = endingTime - nowTimeStamp;
+
+    if (restTime <= 0){
+        isFinished();
+    }
 }

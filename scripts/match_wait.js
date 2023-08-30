@@ -32,9 +32,6 @@ function isStarted(){
     });
 }
 
-function getMatchSetting(){
-    return JSON.parse(localStorage["matchSetting"])
-}
 
 function showParticipantList(){
     participantList = {};
