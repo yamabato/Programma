@@ -58,6 +58,8 @@ def create_match_data_file(username, match_id, room_setting):
         "solved": {},
         "displayed": defaultdict(int),
         "problem_number": {},
+        "surrender": {},
+        "ending_time": -1,
     }
 
     match_data_path = make_match_data_path(match_id)
@@ -162,11 +164,16 @@ def start_match(match_id, match_key):
     match_data["status"] = 1
     match_data["start"] = get_now_timestamp() + 10
 
+    room_setting = match_data["room_setting"]
+
+    match_type = room_setting["type"]
+    if match_type == "time":
+        match_data["ending_time"] = get_now_timestamp() + room_setting["hour"] * 60*60 + room_setting["minute"] * 60
+
     displayed_data = get_displayed_data()
     displayed = defaultdict(int)
 
     participants = match_data["participants"].keys()
-    room_setting = match_data["room_setting"]
     match_level = room_setting["level"]
     problems = get_problem_list(match_level)
     for username in participants:
@@ -177,6 +184,7 @@ def start_match(match_id, match_key):
 
     match_data["solved"] = {name: [] for name in participants}
     match_data["problem_number"] = {name: -1 for name in participants}
+    match_data["surrender"] = {name: False for name in participants}
 
     save_match_data(match_data, match_id)
 
@@ -258,3 +266,32 @@ def check_match_program(match_id, username, program):
 
     return correct, stdout_text, stderr_text
 
+def is_finished(match_id, match_key, username):
+    if not check_match_key(match_id, match_key): return False, False
+
+    match_data = get_match_data(match_id)
+    room_setting = match_data["room_setting"]
+    match_type = room_setting["type"]
+
+    finished = False
+
+    if match_type == "time":
+        ending_time = match_data["ending_time"]
+        now_timestamp = get_now_timestamp()
+        if now_timestamp >= ending_time:
+            finished = True
+
+    elif match_type == "count":
+        problem_number = match_data["problem_number"][username]
+        match_problem_count = int(room_setting["count"])
+
+        if problem_number >= match_problem_count:
+            finished = True
+    else:
+        surrendered = list(match_data["surrender"].values())
+        if match_data["surrender"][username]:
+            finished = True
+        if surrendered.count(True) >= len(surrendered)-1:
+            finished = True
+
+    return True, finished

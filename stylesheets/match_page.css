@@ -38,22 +38,28 @@
 #match-cover-title.incorrect{
     color: #1c5cd4;
 }
-#match-cover-next-problem{
+#match-cover-title.finish{
+    color: #f08300 ;
+}
+
+.match-cover-button{
     font-size: 30px;
     padding: 10px 30px;
-    background-color: #f08300;
     color: white;
-    border: 5px solid #ec6800;
     border-radius: 10px;
+}
+#match-cover-next-problem{
+    background-color: #f08300;
+    border: 5px solid #ec6800;
 }
 
 #match-cover-close{
-    font-size: 30px;
-    padding: 10px 30px;
     background-color: #3e62ad;
-    color: white;
     border: 5px solid #1e50a2;
-    border-radius: 10px;
+}
+#match-cover-result{
+    background-color: #f39800 ;
+    border: 5px solid #f6ad49 ;
 }
 
 #tab-area{

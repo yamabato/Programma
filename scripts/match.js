@@ -43,6 +43,7 @@ function closePopUp(){
     document.getElementById("match-cover").style.display = "none";
     document.getElementById("match-cover-correct").style.display = "none";
     document.getElementById("match-cover-incorrect").style.display = "none";
+    document.getElementById("match-cover-finish").style.display = "none";
 }
 
 function matchChangeTab(tabN){
@@ -130,6 +131,29 @@ function submitMatchProgram(){
         }
         else{
             document.getElementById("match-cover-incorrect").style.display = "flex";
+        }
+    }).catch((error) => {
+    });;
+}
+
+function isFinished(){
+
+    fetch(`https://programming.pythonanywhere.com/finished?id=${matchID}&key=${matchKey}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        },
+    }).then((response) => {
+        if(!response.ok) {
+            console.log("ERROR")
+        }
+        return response.json();
+    }).then((data)  => {
+        if (data["ok"]){
+            if (data["finished"]){
+                document.getElementById("match-cover").style.display = "block";
+                document.getElementById("match-cover-finish").style.display = "flex";
+            }
         }
     }).catch((error) => {
     });;

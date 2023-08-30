@@ -4,12 +4,16 @@
 
 <div id="match-cover">
     <div id="match-cover-correct" class="match-cover-container">
-        <div id="match-cover-title" class="correct">正解!</div>
+        <div id="match-cover-title" class="match-cover-button" class="correct">正解!</div>
         <button id="match-cover-next-problem" onclick="goNextProblem();">次へ</button>
     </div>
     <div id="match-cover-incorrect" class="match-cover-container">
         <div id="match-cover-title" class="incorrect">不正解...</div>
-        <button id="match-cover-close" onclick="closePopUp();">閉じる</button>
+        <button id="match-cover-close" class="match-cover-button" onclick="closePopUp();">閉じる</button>
+    </div>
+    <div id="match-cover-finish" class="match-cover-container">
+        <div id="match-cover-title" class="finish">終了</div>
+        <button id="match-cover-result" class="match-cover-button" onclick="closePopUp();">結果</button>
     </div>
 </div>
 

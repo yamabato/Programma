@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/programming/mysite/programs/2023_08_30_04_52_09_211821FL.py", line 1, in <module>
+    a, b = map(int, input().split)
+TypeError: 'builtin_function_or_method' object is not iterable

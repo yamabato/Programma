@@ -3,7 +3,7 @@ import json
 
 from lecture import generate_lecture_html, generate_task_cases_data, get_lectures_data
 from program import check_python_program, get_python_program_output
-from match import make_new_room, enter_room, get_participant_list, start_match, is_started, return_match_next_problem, check_match_program
+from match import make_new_room, enter_room, get_participant_list, start_match, is_started, return_match_next_problem, check_match_program, is_finished
 from user import signup, signin, check_auto_signin, record_cleared_task
 
 app = Flask(__name__)
@@ -205,6 +205,17 @@ def match_next_problem():
     ok, problem_html = return_match_next_problem(match_id, match_key, username)
     return {"ok": ok, "problem_html": problem_html}
 
+@app.route("/finished", methods=["GET"])
+def match_finished():
+    ok, username = get_username()
+    if not ok: return {"ok": False, "finished": False}
+
+    match_id = request.args.get("id", "")
+    match_key = request.args.get("key", "")
+
+    ok, finished = is_finished(match_id, match_key, username)
+
+    return {"ok": ok, "finished": finished}
 
 @app.route("/result", methods=["POST", "GET"])
 def result_page():
