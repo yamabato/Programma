@@ -376,7 +376,7 @@ def format_timestamp(timestamp):
     minute = int(timestamp // (60*60) % 60)
     second = int(timestamp % 60 // 1)
 
-    return f"{hour:02}:{minute:02}:{second:02}"
+    return f"{hour:02}時間{minute:02}分{second:02}秒"
 
 def generate_ranking_html(match_id, match_key, username, for_match=False):
     if not check_match_key(match_id, match_key): return False, "", "", -1
@@ -430,6 +430,35 @@ def generate_ranking_html(match_id, match_key, username, for_match=False):
             user_rank = rank
 
     return True, html, user_nickname, user_rank
+
+def get_room_info(match_id, match_key):
+    if not check_match_key(match_id, match_key): return {"ok": False}
+
+    match_data = get_match_data(match_id)
+    room_setting = match_data["room_setting"]
+
+    room_type_table = defaultdict(str, {"time": "時間制", "count": "問題数制", "inf": "無限"})
+    room_part_table = defaultdict(str, {"individual": "個人戦", "team": "団体戦"})
+
+    room_name = room_setting["room_name"]
+    room_type = room_type_table[room_setting["type"]]
+
+    hour = room_setting["hour"]
+    minute = room_setting["minute"]
+    if hour + minute > 0:
+        room_time = format_timestamp(hour*3600 + minute*60)
+    else:
+        room_time = "-"
+
+    count = room_setting["count"]
+    if count == 0:
+        room_count = "-"
+    else:
+        room_count = count
+    room_participation = room_part_table[room_setting["participation_type"]]
+    room_level = room_setting["level"]
+
+    return {"ok": True, "name": room_name, "type": room_type, "time": room_time, "count": room_count, "participation": room_participation, "level": room_level}
 
 def surrender(match_id, match_key, username):
     if not check_match_key(match_id, match_key): return False

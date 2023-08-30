@@ -89,6 +89,28 @@ function updateRankingTab(){
     });
 }
 
+function showRule(){
+    matchID = localStorage["matchID"];
+    matchKey = localStorage["matchKey"];
+    fetch(`https://programming.pythonanywhere.com/rule_info?id=${matchID}&key=${matchKey}`)
+    .then((response) => response.json())
+    .then((data) => {
+        if (data["ok"]){
+            document.getElementById("rule-room-name").innerHTML = data["name"];
+            document.getElementById("rule-room-type").innerHTML = data["type"];
+            document.getElementById("rule-time").innerHTML = data["time"];
+            document.getElementById("rule-count").innerHTML = data["count"];
+            document.getElementById("rule-participation").innerHTML = data["participation"];
+
+            data["level"].forEach((lv)=>{
+                document.getElementById(`rule-table-level-${lv}`).classList.add("available");
+            });
+        }
+        else{
+        }
+    });
+}
+
 function setNextProblem(){
     matchID = localStorage["matchID"];
     matchKey = localStorage["matchKey"];
@@ -223,7 +245,7 @@ function showRest(){
             restText = `残り ${formatTimeStamp(restTime)}`;
         }
         else{
-            restText = "残り -:-:-";
+            restText = "残り -時間-分-秒";
         }
     }
     else if(matchType == "count"){

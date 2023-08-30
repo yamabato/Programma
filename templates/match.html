@@ -56,29 +56,29 @@
             <table id="rule-table">
                 <tr id="rule-table-row">
                     <td class="rule-table-label">部屋名</td>
-                    <td class="rule-table-info">MATCH1</td>
+                    <td class="rule-table-info" id="rule-room-name"></td>
                 </tr>
                 <tr id="rule-table-row">
                     <td class="rule-table-label">タイプ</td>
-                    <td class="rule-table-info">時間制</td>
+                    <td class="rule-table-info" id="rule-room-type"></td>
                 </tr>
                 <tr id="rule-table-row">
                     <td class="rule-table-label">制限時間</td>
-                    <td class="rule-table-info">2時間</td>
+                    <td class="rule-table-info" id="rule-time"></td>
                 </tr>
                 <tr id="rule-table-row">
                     <td class="rule-table-label">問題数</td>
-                    <td class="rule-table-info">-</td>
+                    <td class="rule-table-info" id="rule-count"></td>
                 </tr>
                 <tr id="rule-table-row">
                     <td class="rule-table-label">参加形態</td>
-                    <td class="rule-table-info">個人戦</td>
+                    <td class="rule-table-info" id="rule-participation"></td>
                 </tr>
                 <tr id="rule-table-row">
                     <td class="rule-table-label">難易度</td>
                     <td class="rule-table-info">
                         <div class="rule-table-level-container">
-                            <div class="rule-table-level available" id="rule-table-level-1">1</div>
+                            <div class="rule-table-level" id="rule-table-level-1">1</div>
                             <div class="rule-table-level" id="rule-table-level-2">2</div>
                             <div class="rule-table-level" id="rule-table-level-3">3</div>
                         </div>
@@ -123,6 +123,7 @@
     });
 
     matchChangeTab(0);
+    showRule();
 
     if (JSON.parse(localStorage["matchSetting"])["type"] == "time"){
         window.setInterval(function(){
