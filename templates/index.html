@@ -139,13 +139,12 @@
 
                 <h1 class="app-info-section-title">更新履歴</h1>
                 <div id="app-info-release" class="app-info-section">
-                    <h1 class="app-info-release-date">2023/09/01</h1>
-                    <div class="app-info-content">・サービス公開</div>
-
+                    {{ release_log_html | safe }}
                 </div>
 
                 <h1 class="app-info-section-title">実装予定</h1>
                 <div id="app-info-plan" class="app-info-section">
+                    {{ feature_plan_html | safe }}
                 </div>
 
             </div>

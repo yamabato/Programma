@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 import json
 
+from app_info import get_release_log, get_feature_plan
 from lecture import generate_lecture_html, generate_task_cases_data, get_lectures_data
 from program import check_python_program, get_python_program_output
 from contact import record_contact, get_faq_list
@@ -29,7 +30,10 @@ def index_page():
 
     if ok:
         faq_html = get_faq_list()
-        return render_template("index.html", title="Programma", username=username, faq_html=faq_html)
+        release_log_html = get_release_log()
+        feature_plan_html = get_feature_plan()
+        return render_template("index.html", title="Programma", username=username,
+                                faq_html=faq_html, release_log_html=release_log_html, feature_plan_html=feature_plan_html)
     else:
         return redirect(url_for("signin_page"))
 
