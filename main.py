@@ -3,7 +3,7 @@ import json
 
 from lecture import generate_lecture_html, generate_task_cases_data, get_lectures_data
 from program import check_python_program, get_python_program_output
-from contact import record_contact
+from contact import record_contact, get_faq_list
 from match import make_new_room, enter_room, get_participant_list, start_match, is_started, return_match_next_problem, check_match_program, is_finished, generate_ranking_html
 from user import signup, signin, check_auto_signin, record_cleared_task
 
@@ -28,7 +28,8 @@ def index_page():
     ok, username = get_username()
 
     if ok:
-        return render_template("index.html", title="Programma", username=username)
+        faq_html = get_faq_list()
+        return render_template("index.html", title="Programma", username=username, faq_html=faq_html)
     else:
         return redirect(url_for("signin_page"))
 
