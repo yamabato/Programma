@@ -8,18 +8,20 @@
         <div class="sidebar-menu-item index-menu-battle" onclick="changeItem(1);">対戦</div>
         <div class="sidebar-menu-item index-menu-game" onclick="changeItem(2);">ゲーム</div>
         <div class="sidebar-menu-item index-menu-contact" onclick="changeItem(3);">お問い合わせ</div>
+        <div class="sidebar-menu-item index-menu-app" onclick="changeItem(4);">アプリ情報</div>
+        <div class="sidebar-menu-item index-menu-account" onclick="changeItem(5);">アカウント</div>
     </div>
 
     <div class="index-main-content">
-        <div id="index-learn" class="index-learn">
-            <div class="item-title-learn">学習</div>
+        <div id="index-learn" class="index-section">
+            <div class="item-section-title">学習</div>
             <div id="lectures-list-area">
             <div id="lectures-list" class="lectures-list">
             </div></div>
         </div>
 
-        <div id="index-match" class="index-match" style="display: none;">
-            <div class="item-title-match">対戦</div>
+        <div id="index-match" class="index-section" style="display: none;">
+            <div class="item-section-title">対戦</div>
             <div class="icon-list-section">
                 <div class="icon-list-item-container match">
                     <a class="icon-list-item" href="/new">
@@ -44,8 +46,8 @@
             </div>
         </div>
 
-        <div id="index-game" class="index-game" style="display: none;">
-            <div class="item-title-game">ゲーム</div>
+        <div id="index-game" class="index-section" style="display: none;">
+            <div class="item-section-title">ゲーム</div>
             <div class="icon-list-section">
                 <!--
                 <div class="icon-list-item-container game">
@@ -62,13 +64,39 @@
                     </a>
                 </div>
             </div>
-
         </div>
+
+
+        <div id="index-contact" class="index-section" style="display: none;">
+            <div class="item-section-title">お問い合わせ</div>
+            <div id="index-contact-section">
+                <div id="contact-form-container">
+
+                </div>
+                <div id="contact-frequently-questions-container">
+
+                </div>
+            </div>
+        </div>
+
+        <div id="index-app" class="index-section" style="display: none;">
+            <div class="item-section-title">アプリ情報</div>
+            <div class="icon-list-section">
+            </div>
+        </div>
+
+        <div id="index-account" class="index-section" style="display: none;">
+            <div class="item-section-title">アカウント</div>
+            <div class="icon-list-section">
+            </div>
+        </div>
+
     </div>
 
 </div>
 
 <link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="contact.css">
 <script src="index.js"></script>
 
 <script>

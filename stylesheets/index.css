@@ -21,10 +21,10 @@
 
 .index-main-content{
     width: 85%;
-    height: 100%;
+    height: 95%;
 }
 
-.index-learn, .index-match, .index-game{
+.index-section{
     width: 100%;
     height: 100%;
     display: flex;
@@ -32,59 +32,31 @@
     background: linear-gradient(#bbc8e6, #84a2d4);
 }
 
-/*
-.index-learn{
-    background: linear-gradient(#bbc8e6, #84a2d4);
-}
-
-.index-match{
-    background: linear-gradient(#fdeff2, #f8b862);
-}
-
-.index-game{
-    background: linear-gradient(#d6e9ca , #d8e698 );
-}*/
-
 .sidebar-menu-item{
     width: 100%;
     height: 2rem;
     font-size: 1.5rem;
-    background: linear-gradient(to right, rgba(187, 200, 230, 0.6), rgba(0, 0, 0, 0));
+    background: linear-gradient(to right, rgba(187, 200, 230, 0.6), rgba(0, 0, 0, 0) 70%);
     margin: 0px 0px 20px 0px;
     padding: 5px;
 }
 
 .sidebar-menu-item:hover{
-    background: linear-gradient(to right, rgba(90, 121, 186, 0.8), rgba(0, 0, 0, 0));
+    background: linear-gradient(to right, rgba(90, 121, 186, 0.8), rgba(0, 0, 0, 0) 90%);
     filter: drop-shadow(0 0 10px #4d5aaf);
     border-left: solid 5px #1e50a2;
 }
 
-.item-title-learn, .item-title-match, .item-title-game{
-    height: 10%;
-    font-size: 50px;
-    text-align: center;
-    padding-top: 20px;
-    background-color: rgba(62, 98, 173, 0.6);
+.item-section-title{
+    line-height: 13vh;
+    font-size: 6vh;
+    display: inline;
+    padding: 0px 20px;
+    margin-left: 30px;
+    background: linear-gradient(rgba(0,0,0,0) 80%, rgba(62, 98, 173, 0.6) 80%);
     filter: drop-shadow(20px 20px 10px #19448e);
 }
 
-/*
-.item-title-learn{
-    background-color: rgba(62, 98, 173, 0.6);
-    filter: drop-shadow(20px 20px 10px #19448e);
-}
-
-.item-title-match{
-    background-color: rgba(240, 131, 0, 0.6);
-    filter: drop-shadow(20px 20px 10px #f08300);
-}
-
-.item-title-game{
-    background-color: rgba(184, 210, 0, 0.6);
-    filter: drop-shadow(20px 20px 10px #82ae46);
-}
-*/
 
 .text-comming-soon{
     font-size: 50px;
@@ -94,6 +66,7 @@
 #lectures-list-area{
     height: 80%;
     overflow: scroll;
+    padding-top:30px;
 }
 .lectures-list{
     display: flex;
@@ -176,6 +149,9 @@ i{
     flex-direction: column;
     align-items: center;
     width: 100%;
+    height: 80%;
+    padding-top: 50px;
+    overflow-y: scroll;
 }
 .icon-list-item-container{
     width: 40%;

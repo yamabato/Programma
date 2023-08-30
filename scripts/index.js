@@ -1,4 +1,12 @@
-items = ["index-learn", "index-match", "index-game"];
+items = [
+    "index-learn",
+    "index-match",
+    "index-game",
+    "index-contact",
+    "index-app",
+    "index-account",
+];
+
 let chapterSectionList = [];
 
 function changeItem(item_id){
@@ -65,10 +73,10 @@ function makeLectureList(){
                 cleared = section_data["cleared"]
 
                 if (cleared){
-                    listHtml += `<a id="lectures-list-section-title${i}_${j}" class="lectures-list-section-title-cleared" onclick="location.href='https://programma.pythonanywhere.com/lecture?lid=${lecture_id}';"><i class='fa-solid fa-check'></i>${j+1}. ${section_title}</a>`;
+                    listHtml += `<a id="lectures-list-section-title${i}_${j}" class="lectures-list-section-title-cleared" onclick="location.href='/lecture?lid=${lecture_id}';"><i class='fa-solid fa-check'></i>${j+1}. ${section_title}</a>`;
                 }
                 else{
-                    listHtml += `<a id="lectures-list-section-title${i}_${j}" class="lectures-list-section-title" onclick="location.href='https://programma.pythonanywhere.com/lecture?lid=${lecture_id}';">${j+1}. ${section_title}</a>`;
+                    listHtml += `<a id="lectures-list-section-title${i}_${j}" class="lectures-list-section-title" onclick="location.href='/lecture?lid=${lecture_id}';">${j+1}. ${section_title}</a>`;
                 }
             }
 

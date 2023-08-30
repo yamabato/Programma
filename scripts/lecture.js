@@ -30,7 +30,7 @@ function askBackToMainPage(){
 }
 
 function backToMainPage(){
-    location.href = "https://programming.pythonanywhere.com/";
+    location.href = "/";
 }
 
 function closeAskBack(){

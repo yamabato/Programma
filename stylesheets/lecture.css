@@ -188,7 +188,9 @@
 
 
 .check-btn:disabled{
+    border-color: #adadad;
     background-color: #7d7d7d ;
+    color: black;
 }
 
 .check-btn:disabled:hover{
@@ -240,11 +242,13 @@
     margin: -50px 0 0 -50px;
 }
 .popup-yes-button{
-    background-color: #f39800;
+    background-color: #c9171e;
+    color: white;
     left: 20%;
 }
 .popup-no-button{
-    background-color: #0059f2;
+    background-color: #1676c9;
+    color: white;
     right: 20%;
 }
 
