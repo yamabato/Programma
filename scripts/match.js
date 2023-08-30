@@ -64,6 +64,29 @@ function matchChangeTab(tabN){
     document.getElementById(tabs[tabN]).classList.add("open");
     document.getElementById(infoContainers[tabN]).style.display = containerDisplayType[tabN];
     document.getElementById("info-area").classList = [info[tabN]];
+
+    if (info[tabN] == "rank"){
+        updateRankingTab();
+    }
+}
+
+function updateRankingTab(){
+    matchID = localStorage["matchID"];
+    matchKey = localStorage["matchKey"];
+    fetch(`https://programming.pythonanywhere.com/ranking?id=${matchID}&key=${matchKey}`)
+    .then((response) => response.json())
+    .then((data) => {
+        if (data["ok"]){
+            ranking_header = `<tr id="rank-table-head">
+                    <th class="rank-table-th">順位</th>
+                    <th class="rank-table-th">名前</th>
+                    <th class="rank-table-th">問題数</th>
+                </tr>`
+            document.getElementById("rank-table").innerHTML = ranking_header + data["match_ranking"];
+        }
+        else{
+        }
+    });
 }
 
 function setNextProblem(){

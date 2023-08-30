@@ -211,7 +211,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    overflow: auto;
+    overflow-y: scroll;
 }
 #rank-table{
     width: 90%;
@@ -226,6 +226,9 @@
 }
 .rank-table-row{
     font-size: 20px;
+}
+.rank-table-row.surrender{
+    background-color: #e9e4d4;
 }
 .rank-table-td{
     text-align: center;

@@ -5,7 +5,7 @@ from app_info import get_release_log, get_feature_plan
 from lecture import generate_lecture_html, generate_task_cases_data, get_lectures_data
 from program import check_python_program, get_python_program_output
 from contact import record_contact, get_faq_list
-from match import make_new_room, enter_room, get_participant_list, start_match, is_started, return_match_next_problem, check_match_program, is_finished, generate_ranking_html, surrender
+from match import make_new_room, enter_room, get_participant_list, start_match, is_started, return_match_next_problem, check_match_program, is_finished, surrender, generate_ranking_html
 from user import signup, signin, check_auto_signin, record_cleared_task
 
 app = Flask(__name__)
@@ -235,6 +235,15 @@ def match_finished():
     ok, finished = is_finished(match_id, match_key, username)
 
     return {"ok": ok, "finished": finished}
+
+@app.route("/ranking", methods=["GET"])
+def return_match_ranking():
+    match_id = request.args.get("id", "")
+    match_key = request.args.get("key", "")
+
+    ok, match_ranking, _, _ = generate_ranking_html(match_id, match_key, "", True)
+
+    return {"ok": ok, "match_ranking": match_ranking}
 
 @app.route("/surrender", methods=["GET"])
 def receive_surrender():

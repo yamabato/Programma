@@ -378,7 +378,7 @@ def format_timestamp(timestamp):
 
     return f"{hour:02}:{minute:02}:{second:02}"
 
-def generate_ranking_html(match_id, match_key, username):
+def generate_ranking_html(match_id, match_key, username, for_match=False):
     if not check_match_key(match_id, match_key): return False, "", "", -1
 
     html = ""
@@ -411,14 +411,21 @@ def generate_ranking_html(match_id, match_key, username):
             clear_time = format_timestamp(clear_timestamp)
         surrender = surrender_data[user]
 
-        html += f"""<tr class="match-ranking-table-row {"surrender" if surrender else ""}">"""
-        html += f"""<td class="match-ranking-table-td {rank_class}">#{rank}</td>"""
-        html += f"""<td class="match-ranking-table-td {rank_class}">{nickname}</td>"""
-        html += f"""<td class="match-ranking-table-td {rank_class}">{solved_count}</td>"""
-        html += f"""<td class="match-ranking-table-td {rank_class}">{clear_time}</td>"""
-        html += "</tr>"
+        if for_match:
+            html += f"""<tr class="rank-table-row {"surrender" if surrender else ""}">"""
+            html += f"""<td class="rank-table-td">#{rank}</td>"""
+            html += f"""<td class="rank-table-td">{nickname}</td>"""
+            html += f"""<td class="rank-table-td">{solved_count}</td>"""
+            html += f"""</tr>"""
+        else:
+            html += f"""<tr class="match-ranking-table-row {"surrender" if surrender else ""}">"""
+            html += f"""<td class="match-ranking-table-td {rank_class}">#{rank}</td>"""
+            html += f"""<td class="match-ranking-table-td {rank_class}">{nickname}</td>"""
+            html += f"""<td class="match-ranking-table-td {rank_class}">{solved_count}</td>"""
+            html += f"""<td class="match-ranking-table-td {rank_class}">{clear_time}</td>"""
+            html += "</tr>"
 
-        if user == username:
+        if not for_match and user == username:
             user_nickname = nickname
             user_rank = rank
 
