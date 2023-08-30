@@ -4,7 +4,7 @@ items = [
     "index-game",
     "index-contact",
     "index-app",
-    "index-account",
+    /*"index-account",*/
 ];
 
 let chapterSectionList = [];

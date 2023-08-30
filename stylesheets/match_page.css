@@ -18,6 +18,12 @@
     background-color: rgba(255, 255, 224, 0.7);
     display: none;
 }
+#match-cover-home{
+    flex-direction: row;
+}
+#match-cover-surrender{
+    flex-direction: row;
+}
 
 .match-cover-container{
     width: 100%;
@@ -29,17 +35,20 @@
     align-items: center;
 }
 
-#match-cover-title{
+.match-cover-title{
     font-size: 100px;
 }
-#match-cover-title.correct{
+.match-cover-title.correct{
     color: #d3381c;
 }
-#match-cover-title.incorrect{
+.match-cover-title.incorrect{
     color: #1c5cd4;
 }
-#match-cover-title.finish{
+.match-cover-title.finish{
     color: #f08300 ;
+}
+.match-cover-title.home{
+    color: #003f8e;
 }
 
 .match-cover-button{
@@ -60,6 +69,21 @@
 #match-cover-result{
     background-color: #f39800 ;
     border: 5px solid #f6ad49;
+}
+#match-cover-to-home{
+    background-color: #ec6800;
+    border: 5px solid #f39800;
+    margin: 0px 20px;
+}
+#match-cover-home-close{
+    background-color: #3e62ad;
+    border: 5px solid #1e50a2;
+    margin: 0px 20px;
+}
+#match-cover-surrender-button{
+    background-color: #ba2636;
+    border: 5px solid #d3381c;
+    margin: 0px 20px;
 }
 
 #tab-area{

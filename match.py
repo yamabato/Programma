@@ -420,8 +420,16 @@ def generate_ranking_html(match_id, match_key, username):
 
     return True, html, user_nickname, user_rank
 
+def surrender(match_id, match_key, username):
+    if not check_match_key(match_id, match_key): return False
 
+    match_data = get_match_data(match_id)
 
+    match_data["surrender"][username] = True
+
+    save_match_data(match_data, match_id)
+
+    return True
 
 
 

@@ -5,7 +5,7 @@ from app_info import get_release_log, get_feature_plan
 from lecture import generate_lecture_html, generate_task_cases_data, get_lectures_data
 from program import check_python_program, get_python_program_output
 from contact import record_contact, get_faq_list
-from match import make_new_room, enter_room, get_participant_list, start_match, is_started, return_match_next_problem, check_match_program, is_finished, generate_ranking_html
+from match import make_new_room, enter_room, get_participant_list, start_match, is_started, return_match_next_problem, check_match_program, is_finished, generate_ranking_html, surrender
 from user import signup, signin, check_auto_signin, record_cleared_task
 
 app = Flask(__name__)
@@ -235,6 +235,19 @@ def match_finished():
     ok, finished = is_finished(match_id, match_key, username)
 
     return {"ok": ok, "finished": finished}
+
+@app.route("/surrender", methods=["GET"])
+def receive_surrender():
+    ok, username = get_username()
+    if ok:
+        match_id = request.args.get("id", "")
+        match_key = request.args.get("key", "")
+        ok = surrender(match_id, match_key, username)
+
+        return {"ok": ok}
+    else:
+        return redirect(url_for("signin_page"))
+
 
 @app.route("/result", methods=["POST", "GET"])
 def result_page():

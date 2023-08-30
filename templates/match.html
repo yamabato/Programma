@@ -4,16 +4,24 @@
 
 <div id="match-cover">
     <div id="match-cover-correct" class="match-cover-container">
-        <div id="match-cover-title" class="correct">正解!</div>
+        <div class="match-cover-title correct">正解!</div>
         <button id="match-cover-next-problem" class="match-cover-button" onclick="goNextProblem();">次へ</button>
     </div>
     <div id="match-cover-incorrect" class="match-cover-container">
-        <div id="match-cover-title" class="incorrect">不正解...</div>
+        <div class="match-cover-title incorrect">不正解...</div>
         <button id="match-cover-close" class="match-cover-button" onclick="closePopUp();">閉じる</button>
     </div>
     <div id="match-cover-finish" class="match-cover-container">
-        <div id="match-cover-title" class="finish">終了</div>
+        <div class="match-cover-title finish">終了</div>
         <button id="match-cover-result" class="match-cover-button" onclick="toResultPage();">結果</button>
+    </div>
+    <div id="match-cover-home" class="match-cover-container">
+        <button id="match-cover-to-home" class="match-cover-button" onclick="toHome();">ホームへ</button>
+        <button id="match-cover-close" class="match-cover-button" onclick="closePopUp();">閉じる</button>
+    </div>
+    <div id="match-cover-surrender" class="match-cover-container">
+        <button id="match-cover-surrender-button" class="match-cover-button" onclick="sendSurrender();">降参</button>
+        <button id="match-cover-close" class="match-cover-button" onclick="closePopUp();">閉じる</button>
     </div>
 </div>
 
@@ -26,8 +34,8 @@
 
     <div id="buttons-area">
         <div id="match-rest">残り -:-:-</div>
-        <div id="home-button">ホーム</div>
-        <div id="surrender-button">降参</div>
+        <div id="home-button" onclick="showHomeButton();">ホーム</div>
+        <div id="surrender-button" onclick="showSurrenderButton();">降参</div>
     </div>
 
     <div id="info-area" class="problem">

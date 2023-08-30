@@ -49,6 +49,8 @@ function closePopUp(){
     document.getElementById("match-cover-correct").style.display = "none";
     document.getElementById("match-cover-incorrect").style.display = "none";
     document.getElementById("match-cover-finish").style.display = "none";
+    document.getElementById("match-cover-home").style.display = "none";
+    document.getElementById("match-cover-surrender").style.display = "none";
 }
 
 function matchChangeTab(tabN){
@@ -210,4 +212,34 @@ function checkRestTime(){
     if (restTime <= 0){
         isFinished();
     }
+}
+
+function showHomeButton(){
+    document.getElementById("match-cover").style.display = "block";
+    document.getElementById("match-cover-home").style.display = "flex";
+
+}
+
+function toHome(){
+    location.href = "/";
+}
+
+function sendSurrender(){
+    matchID = localStorage["matchID"];
+    matchKey = localStorage["matchKey"];
+    fetch(`https://programming.pythonanywhere.com/surrender?id=${matchID}&key=${matchKey}`)
+    .then((response) => response.json())
+    .then((data) => {
+        if (data["ok"]){
+            location.href = `/result?id=${matchID}&key=${matchKey}`;
+        }
+        else{
+            closePopUp();
+        }
+    });
+}
+
+function showSurrenderButton(){
+    document.getElementById("match-cover").style.display = "block";
+    document.getElementById("match-cover-surrender").style.display = "flex";
 }
