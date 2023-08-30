@@ -7,6 +7,7 @@ function startMatch(){
         .then((response) => response.json())
         .then((data) => {
             if (!data["ok"]){
+                localStorage["endingTime"] = match_data["ending_time"];
                 location.href = "/enter";
             }
         });
@@ -24,6 +25,7 @@ function isStarted(){
         else{
             if (data["started"]){
                 start = data["start"];
+                localStorage["endingTime"] = data["ending_time"];
                 location.href = `/count_down?start=${start}`;
             }
         }

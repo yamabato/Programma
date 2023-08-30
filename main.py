@@ -173,15 +173,15 @@ def match_start_request():
     match_id = request.args.get("id", "")
     match_key = request.args.get("key", "")
 
-    ok = start_match(match_id, match_key)
-    return {"ok": ok}
+    ok, ending_time = start_match(match_id, match_key)
+    return {"ok": ok, "ending_time": ending_time}
 
 @app.route("/started", methods=["GET"])
 def match_started():
     match_id = request.args.get("id", "")
     match_key = request.args.get("key", "")
-    ok, started, start = is_started(match_id, match_key)
-    return {"ok": ok, "started": started, "start": start}
+    ok, started, start, ending_time = is_started(match_id, match_key)
+    return {"ok": ok, "started": started, "start": start, "ending_time": ending_time}
 
 @app.route("/count_down", methods=["GET"])
 def count_down_page():

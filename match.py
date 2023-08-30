@@ -64,6 +64,21 @@ def create_match_data_file(username, match_id, room_setting):
         "clear_time": {},
     }
 
+    hour = room_setting["hour"]
+    minute = room_setting["minute"]
+    count = room_setting["count"]
+
+    if not hour.isdigit():
+        hour = "0"
+    if not minute.isdigit():
+        minute = "0"
+    if not count.isdigit():
+        count = "0"
+
+    match_data["room_setting"]["hour"] = int(hour)
+    match_data["room_setting"]["minute"] = int(minute)
+    match_data["room_setting"]["count"] = int(count)
+
     match_data_path = make_match_data_path(match_id)
     save_json_file(match_data, match_data_path)
 
@@ -158,7 +173,7 @@ def init_match_problems(match_id):
     save_match_data(match_data, match_id)
 
 def start_match(match_id, match_key):
-    if not check_match_key(match_id, match_key): return False
+    if not check_match_key(match_id, match_key): return False, -1
 
     match_data = get_match_data(match_id)
 
@@ -192,18 +207,19 @@ def start_match(match_id, match_key):
 
     init_match_problems(match_id)
 
-    return True
+    return True, match_data["ending_time"]
 
 def is_started(match_id, match_key):
-    if not check_match_key(match_id, match_key): return False, False, -1
+    if not check_match_key(match_id, match_key): return False, False, -1, -1
 
     match_data = get_match_data(match_id)
 
     start = match_data["start"]
     status = match_data["status"]
+    ending_time = match_data["ending_time"]
     if status == 1:
-        return True, True, start
-    return True, False, -1
+        return True, True, start, ending_time
+    return True, False, -1, -1
 
 def get_problem_html(problem_id):
     problem_html_path = os.path.join(PROBLEMS_FOLDER, problem_id+".html")
