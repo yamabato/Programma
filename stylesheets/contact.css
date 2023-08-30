@@ -22,7 +22,7 @@
 }
 
 #contact-frequently-asked-questions-container{
-    background-color: #dbd0e6;
+    background-color: #a59aca;
     width: 55%;
 }
 
@@ -77,4 +77,28 @@
 
     transition:
         box-shadow 0.3s;
+}
+
+.contact-question-container{
+    width: 90%;
+    background-color: #dbd0e6;
+    border: 2px dotted #4a488e;
+    padding: 10px;
+    margin: 10px 0px;
+}
+
+.contact-question-title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.material-symbols-outlined.contact-question{
+    font-size: 25px;
+    margin-right: 10px;
+}
+
+.contact-question-title-text{
+    font-size: 25px;
 }
