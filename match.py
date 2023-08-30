@@ -313,6 +313,7 @@ def rank_numbering(ranked_list, data):
         if last in data and data[user] != data[last]:
             rank = n + 1
         rank_numbered_list.append((user, rank))
+        last = user
 
     return rank_numbered_list
 
@@ -332,7 +333,7 @@ def get_ranking(match_id):
     elif match_type == "count":
         solved_problems_ranking = sorted(participants, key=lambda x: problem_number_data[x], reverse=True)
         ranking = sorted(solved_problems_ranking, key=lambda x: clear_time_data[x])
-        sort_data = {user: str(clear_time_data[user])+str(problem_number_data[user]) for user in participants}
+        sort_data = {user: str(clear_time_data[user])+"_"+str(problem_number_data[user]) for user in participants}
     else:
         clear_time_ranking = sorted(participants, key=lambda x: clear_time_data[x])
         ranking = sorted(clear_time_ranking, key=lambda x: problem_number_data[x])
