@@ -14,14 +14,14 @@
 
     <div class="index-main-content">
         <div id="index-learn" class="index-section">
-            <div class="item-section-title">学習</div>
+            <h1 class="item-section-title">学習</h1>
             <div id="lectures-list-area">
             <div id="lectures-list" class="lectures-list">
             </div></div>
         </div>
 
         <div id="index-match" class="index-section" style="display: none;">
-            <div class="item-section-title">対戦</div>
+            <h1 class="item-section-title">対戦</h1>
             <div class="icon-list-section">
                 <div class="icon-list-item-container match">
                     <a class="icon-list-item" href="/new">
@@ -47,7 +47,7 @@
         </div>
 
         <div id="index-game" class="index-section" style="display: none;">
-            <div class="item-section-title">ゲーム</div>
+            <h1 class="item-section-title">ゲーム</h1>
             <div class="icon-list-section">
                 <!--
                 <div class="icon-list-item-container game">
@@ -68,25 +68,42 @@
 
 
         <div id="index-contact" class="index-section" style="display: none;">
-            <div class="item-section-title">お問い合わせ</div>
+            <h1 class="item-section-title">お問い合わせ</h1>
             <div id="index-contact-section">
-                <div id="contact-form-container">
+                <div id="contact-form-container" class="contact-container">
+                    <h1 class="contact-container-title">お問い合わせフォーム</h1>
 
+                    <div class="contact-form-section">
+                        <label id="contact-textarea-label" for="contact-textarea" class="contact-label">お問い合わせ内容</label>
+                        <textarea id="contact-textarea" name="contact-textarea" cols="20" row="5"></textarea>
+                    </div>
+
+                    <div class="contact-form-section">
+                        <label id="contact-type-label" for="contact-type-select" class="contact-label">お問い合わせ種別</label>
+                        <select id="contact-type-select" name="contact-type-select">
+                            <option value="request">ご要望</option>
+                            <option value="complain">ご苦情</option>
+                            <option value="question">ご質問</option>
+                            <option value="other">その他</option>
+                        </select>
+                    </div>
+
+                    <button id="contact-submit-button">送信</button>
                 </div>
-                <div id="contact-frequently-questions-container">
-
+                <div id="contact-frequently-asked-questions-container" class="contact-container">
+                    <h1 class="contact-container-title">よくあるお問い合わせ</h1>
                 </div>
             </div>
         </div>
 
         <div id="index-app" class="index-section" style="display: none;">
-            <div class="item-section-title">アプリ情報</div>
+            <h1 class="item-section-title">アプリ情報</h1>
             <div class="icon-list-section">
             </div>
         </div>
 
         <div id="index-account" class="index-section" style="display: none;">
-            <div class="item-section-title">アカウント</div>
+            <h1 class="item-section-title">アカウント</h1>
             <div class="icon-list-section">
             </div>
         </div>
@@ -101,7 +118,7 @@
 
 <script>
     makeLectureList();
-    changeItem(0);
+    changeItem(3);
 </script>
 
 {% endblock %}
