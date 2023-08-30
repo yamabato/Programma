@@ -368,6 +368,7 @@ def generate_ranking_html(match_id, match_key, username):
 
     user_nickname = ""
     user_rank = ""
+    clear_timestamp = -1
 
     rank_class = ""
     for user, rank in ranking:
@@ -375,7 +376,11 @@ def generate_ranking_html(match_id, match_key, username):
             rank_class = f"rank{rank}"
         nickname = participants[user][0]
         solved_count = problem_number_data[user] + 1
-        clear_time = format_timestamp(clear_time_data[user])
+        clear_timestamp = clear_time_data[user]
+        if clear_timestamp == math.inf:
+            clear_time = "-"
+        else:
+            clear_time = format_timestamp(clear_timestamp)
 
         html += """<tr class="match-ranking-table-row">"""
         html += f"""<td class="match-ranking-table-td {rank_class}">#{rank}</td>"""
