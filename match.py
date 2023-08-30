@@ -268,7 +268,7 @@ def check_match_program(match_id, username, program):
         room_setting = match_data["room_setting"]
         if room_setting["type"] == "count":
             match_problem_count = int(room_setting["count"])
-            if problem_number + 1 >= match_problem_count:
+            if len(solved) - solved.count(-1) >= match_problem_count:
                 match_data["clear_time"][username] = get_now_timestamp() - match_data["start"]
 
         save_match_data(match_data, match_id)
@@ -291,10 +291,10 @@ def is_finished(match_id, match_key, username):
             finished = True
 
     elif match_type == "count":
-        problem_number = match_data["problem_number"][username]
+        solved = match_data["solved"][username]
         match_problem_count = int(room_setting["count"])
 
-        if problem_number + 1 >= match_problem_count:
+        if len(solved) - solved.count(-1) >= match_problem_count:
             finished = True
     else:
         surrendered = list(match_data["surrender"].values())
