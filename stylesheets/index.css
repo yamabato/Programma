@@ -65,7 +65,7 @@
 }
 #lectures-list-area{
     height: 80%;
-    overflow: scroll;
+    overflow-y: auto;
     padding-top:30px;
 }
 .lectures-list{
