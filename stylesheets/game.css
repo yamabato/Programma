@@ -42,11 +42,17 @@
     grid-row: 1/2;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
+    padding: 0px 30px;
+}
+
+#game-problem-select{
+    font-size: 15px;
+    border: none;
+    background-color: #dae8d1;
 }
 .game-home-button{
-    margin-right: 20px;
     height: 80%;
     background-color: #82ae46;
     border: 5px solid #a8c97f;
@@ -70,7 +76,7 @@
     justify-content: space-around;
     align-items: center;
 }
-.game-run-button, .game-match-button{
+.game-run-button, .game-submit-button{
     font-size: 20px;
     padding: 0px 10px;
     border-style: solid;
@@ -80,7 +86,7 @@
     background-color: #badcad;
     border-color: #93ca76;
 }
-.game-match-button{
+.game-submit-button{
     background-color: #82ae46;
     border-color: #aacf53;
     color: white;

@@ -8,6 +8,9 @@
     </div>
 
     <div id="game-button-area">
+        <select id="game-problem-select">
+            {{ problem_select | safe }}
+        </select>
         <button class="game-home-button">ホーム</button>
     </div>
 
@@ -16,7 +19,7 @@
 
     <div id="game-run-button-area">
         <button class="game-run-button">実行</button>
-        <button class="game-match-button">対戦</button>
+        <button class="game-submit-button">提出</button>
     </div>
 
     <div id="game-output-area">
