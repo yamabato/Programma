@@ -242,7 +242,6 @@ function showRest(){
         endingTime = Number(localStorage["endingTime"]);
         restTime = endingTime - nowTimeStamp;
         if (restTime >= 0){
-            console.log(restTime, formatTimeStamp(restTime))
             restText = `残り ${formatTimeStamp(restTime)}`;
         }
         else{

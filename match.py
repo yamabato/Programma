@@ -401,6 +401,8 @@ def generate_ranking_html(match_id, match_key, username, for_match=False):
     for user, rank in ranking:
         if rank <= 3:
             rank_class = f"rank{rank}"
+        else:
+            rank_class= ""
         nickname = participants[user][0]
         solved = match_data["solved"][user]
         solved_count = len(solved) - solved.count(-1)
