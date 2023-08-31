@@ -224,11 +224,11 @@ function toResultPage(){
 }
 
 function formatTimeStamp(timeStamp){
-    hour = String(Math.floor(timeStamp / (60*60))).padStart(2, "0");
-    minute = String(Math.floor(Math.floor(timeStamp / (60*60)) % 60)).padStart(2, "0");
+    hour = String(Math.floor(timeStamp / (60*60))).padStart(1, "0");
+    minute = String(Math.floor((timeStamp / 60) % 60)).padStart(2, "0");
     second = String(Math.floor(timeStamp % 60)).padStart(2, "0");
 
-    return `${hour}:${minute}:${second}`;
+    return `${hour}時間${minute}分${second}秒`;
 }
 
 function showRest(){
@@ -239,9 +239,10 @@ function showRest(){
 
     if (matchType == "time"){
         nowTimeStamp = Number(new Date()) / 1000;
-        endingTime = localStorage["endingTime"];
+        endingTime = Number(localStorage["endingTime"]);
         restTime = endingTime - nowTimeStamp;
         if (restTime >= 0){
+            console.log(restTime, formatTimeStamp(restTime))
             restText = `残り ${formatTimeStamp(restTime)}`;
         }
         else{

@@ -373,7 +373,7 @@ def format_timestamp(timestamp):
     second = 0
 
     hour = int(timestamp // (60*60))
-    minute = int(timestamp // (60*60) % 60)
+    minute = int(timestamp // (60) % 60)
     second = int(timestamp % 60 // 1)
 
     return f"{hour:02}時間{minute:02}分{second:02}秒"

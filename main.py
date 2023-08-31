@@ -10,6 +10,12 @@ from user import signup, signin, check_auto_signin, record_cleared_task
 
 app = Flask(__name__)
 
+import time
+@app.route("/test", methods=["GET"])
+def test():
+    time.sleep(5)
+    return {"test": "datadata"}
+
 def get_username():
     signin_id = request.cookies.get("signin_id", "")
 
@@ -283,6 +289,7 @@ def result_page():
         else:
             return redirect(url_for("signin_page"))
 
+"""
 @app.route("/table", methods=["POST", "GET"])
 def table_game_page():
     if request.method == "POST":
@@ -293,16 +300,28 @@ def table_game_page():
             return render_template("table_game.html", header_type="game", title="対戦ゲーム", username=username)
         else:
             return redirect(url_for("signin_page"))
+"""
 
-@app.route("/game", methods=["POST", "GET"])
-def game_page():
+@app.route("/pencil", methods=["POST", "GET"])
+def pencil_game_page():
     if request.method == "POST":
         pass
     else:
         ok, username = get_username()
         if ok:
-            gameID = request.args.get("id", "b0")
-            return render_template("game.html", header_type="game", title="対戦ゲーム", username=username)
+            return render_template("pencil_game.html", header_type="game", title="ペンシルパズル", username=username)
+        else:
+            return redirect(url_for("signin_page"))
+
+@app.route("/puzzle", methods=["POST", "GET"])
+def puzzle_page():
+    if request.method == "POST":
+        pass
+    else:
+        ok, username = get_username()
+        if ok:
+            gameID = request.args.get("id", "p0")
+            return render_template("game.html", header_type="game", title="ペンシルパズル", username=username)
         else:
             return redirect(url_for("signin_page"))
 
