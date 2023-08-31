@@ -329,6 +329,28 @@ def puzzle_page():
         else:
             return redirect(url_for("signin_page"))
 
+@app.route("/game", methods=["POST"])
+def run_game_program():
+     if request.method == "POST":
+        posted_data_json = get_posted_data()
+
+        program = posted_data_json["program"]
+
+        """
+        if posted_data_json["type"] == "check":
+            lecture_id = request.args.get("lid", "P0101")
+            task_cases = generate_task_cases_data(lecture_id)
+            correct, input_text, stdout_text, stderr_text = check_python_program(program, task_cases)
+
+            if correct:
+                ok, username = get_username()
+                record_cleared_task(username, lecture_id)
+
+            return {"correct": correct, "stdout": stdout_text, "stderr": stderr_text}
+        """
+        if posted_data_json["type"] == "run":
+            stdout_text, stderr_text = get_python_program_output(program)
+            return {"stdout": stdout_text, "stderr": stderr_text}
 
 @app.route("/game_match", methods=["POST", "GET"])
 def game_match_page():
