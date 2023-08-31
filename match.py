@@ -324,7 +324,7 @@ def is_finished(match_id, match_key, username):
         surrendered = list(match_data["surrender"].values())
         if match_data["surrender"][username]:
             finished = True
-        if surrendered.count(True) >= len(surrendered)-1:
+        if surrendered.count(True) >= len(surrendered):
             finished = True
 
     return True, finished
