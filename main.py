@@ -6,7 +6,7 @@ from lecture import generate_lecture_html, generate_task_cases_data, get_lecture
 from program import check_python_program, get_python_program_output
 from contact import record_contact, get_faq_list
 from pencil import get_puzzle_info, get_problem_select, check_game_program
-from match import make_new_room, enter_room, get_participant_list, start_match, is_started, return_match_next_problem, check_match_program, is_finished, surrender, generate_ranking_html, get_room_info
+from match import make_new_room, enter_room, get_participant_list, start_match, is_started, return_match_next_problem, check_match_program, is_finished, surrender, generate_ranking_html, get_room_info, get_problem_html
 from user import signup, signin, check_auto_signin, record_cleared_task
 
 app = Flask(__name__)
@@ -237,6 +237,15 @@ def match_next_problem():
 
     ok, problem_html, rest = return_match_next_problem(match_id, match_key, username)
     return {"ok": ok, "problem_html": problem_html, "rest": rest}
+
+@app.route("/problem_test")
+def problem_test_page():
+    prob_id = request.args.get("id", "")
+
+    prob_html = get_problem_html(prob_id)
+
+    return render_template("problem_test.html", prob_html=prob_html)
+
 
 @app.route("/finished", methods=["GET"])
 def match_finished():
