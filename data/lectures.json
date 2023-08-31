@@ -14,16 +14,6 @@
     },
 
     "2": {
-        "title": "データ型",
-        "sections": {
-            "1": {
-                "title": "データ型とは",
-                "lecture_id": "P0201"
-            }
-        }
-    },
-
-    "3": {
         "title": "変数",
         "sections": {
             "1": {
@@ -34,6 +24,77 @@
                 "title": "変数とは",
                 "lecture_id": "P0301"
             }
+        }
+    },
+
+    "3": {
+        "title": "データ型の概要",
+        "sections": {
+            "1": {
+                "title": "データ型とは",
+                "lecture_id": "P0201"
+            }
+        }
+    },
+
+    "4": {
+        "title": "数値",
+        "sections": {
+        }
+    },
+    "5": {
+        "title": "文字列",
+        "sections": {
+        }
+    },
+    "6": {
+        "title": "リスト",
+        "sections": {
+        }
+    },
+    "7": {
+        "title": "辞書",
+        "sections": {
+        }
+    },
+    "8": {
+        "title": "集合",
+        "sections": {
+        }
+    },
+    "9": {
+        "title": "タプル",
+        "sections": {
+        }
+    },
+    "10": {
+        "title": "フロー制御の概要",
+        "sections": {
+        }
+    },
+    "11": {
+        "title": "ループ",
+        "sections": {
+        }
+    },
+    "12": {
+        "title": "条件分岐",
+        "sections": {
+        }
+    },
+    "13": {
+        "title": "クラス",
+        "sections": {
+        }
+    },
+    "14": {
+        "title": "例外",
+        "sections": {
+        }
+    },
+    "15": {
+        "title": "モジュール",
+        "sections": {
         }
     }
 }
