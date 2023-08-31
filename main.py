@@ -290,10 +290,10 @@ def result_page():
         if ok:
             match_id = request.args.get("id", "")
             match_key = request.args.get("key", "")
-            ok, ranking_html, nickname, rank = generate_ranking_html(match_id, match_key, username)
+            ok, ranking_html, room_name, nickname, rank = generate_ranking_html(match_id, match_key, username)
             if ok:
                 return render_template("match_result.html", header_type="match", title="対戦結果",
-                        username=username, ranking_html=ranking_html, nickname=nickname, rank=rank)
+                        username=username, room_name=room_name, ranking_html=ranking_html, nickname=nickname, rank=rank)
 
             return redirect(url_for("enter_page"))
         else:

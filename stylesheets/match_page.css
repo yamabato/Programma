@@ -199,7 +199,9 @@
     margin-bottom: 10px;
 }
 .problem-text.subscript{
-    font-size: 10px;
+    font-size: 13px;
+    display: inline;
+    margin-left: 3px;
 }
 .problem-code{
     display: inline;

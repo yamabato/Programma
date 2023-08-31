@@ -2,7 +2,7 @@
 
 {% block content %}
 <div id="result-main">
-    <div id="match-name">MATCH1</div>
+    <div id="match-name">{{ room_name }}</div>
 
     <div id="match-user-rank">
         <div id="match-username">{{ nickname }}</div>
@@ -18,45 +18,6 @@
                 <th class="match-ranking-table-th">時間</th>
             </tr>
             {{ ranking_html | safe}}
-            <!--
-
-            <tr class="match-ranking-table-row">
-                <td class="match-ranking-table-td rank1">#1</td>
-                <td class="match-ranking-table-td rank1">Taro</td>
-                <td class="match-ranking-table-td rank1">50</td>
-                <td class="match-ranking-table-td rank1">2:00:10</td>
-            </tr>
-            <tr class="match-ranking-table-row">
-                <td class="match-ranking-table-td rank2">#2</td>
-                <td class="match-ranking-table-td rank2">Jiro</td>
-                <td class="match-ranking-table-td rank2">23</td>
-                <td class="match-ranking-table-td rank2">2:00:10</td>
-            </tr>
-            <tr class="match-ranking-table-row">
-                <td class="match-ranking-table-td rank3">#3</td>
-                <td class="match-ranking-table-td rank3">Saburo</td>
-                <td class="match-ranking-table-td rank3">12</td>
-                <td class="match-ranking-table-td rank3">2:00:10</td>
-            </tr>
-            <tr class="match-ranking-table-row surrender">
-                <td class="match-ranking-table-td">#4</td>
-                <td class="match-ranking-table-td">Siro</td>
-                <td class="match-ranking-table-td">5</td>
-                <td class="match-ranking-table-td">2:00:10</td>
-            </tr>
-            <tr class="match-ranking-table-row">
-                <td class="match-ranking-table-td">(#5)</td>
-                <td class="match-ranking-table-td">Garo</td>
-                <td class="match-ranking-table-td">3</td>
-                <td class="match-ranking-table-td">2:00:10</td>
-            </tr>
-            <tr class="match-ranking-table-row">
-                <td class="match-ranking-table-td">#6</td>
-                <td class="match-ranking-table-td">RokuRo</td>
-                <td class="match-ranking-table-td">1</td>
-                <td class="match-ranking-table-td">2:00:10</td>
-            </tr>
-            -->
         </table>
     </div>
 

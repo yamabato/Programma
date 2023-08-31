@@ -379,7 +379,7 @@ def format_timestamp(timestamp):
     return f"{hour:02}時間{minute:02}分{second:02}秒"
 
 def generate_ranking_html(match_id, match_key, username, for_match=False):
-    if not check_match_key(match_id, match_key): return False, "", "", -1
+    if not check_match_key(match_id, match_key): return False, "", "", "", -1
 
     html = ""
 
@@ -390,6 +390,9 @@ def generate_ranking_html(match_id, match_key, username, for_match=False):
     clear_time_data = match_data["clear_time"]
     surrender_data = match_data["surrender"]
     participants = match_data["participants"]
+
+    room_setting = match_data["room_setting"]
+    room_name = room_setting["room_name"]
 
     user_nickname = ""
     user_rank = ""
@@ -431,7 +434,7 @@ def generate_ranking_html(match_id, match_key, username, for_match=False):
             user_nickname = nickname
             user_rank = rank
 
-    return True, html, user_nickname, user_rank
+    return True, html, room_name, user_nickname, user_rank
 
 def get_room_info(match_id, match_key):
     if not check_match_key(match_id, match_key): return {"ok": False}
