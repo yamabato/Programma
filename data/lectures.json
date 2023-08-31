@@ -9,6 +9,10 @@
             "2": {
                 "title": "最初の一歩",
                 "lecture_id": "P0102"
+            },
+            "3": {
+                "title": "四則演算",
+                "lecture_id": "P0103"
             }
         }
     },
@@ -18,11 +22,11 @@
         "sections": {
             "1": {
                 "title": "変数とは",
-                "lecture_id": "P0301"
+                "lecture_id": "P0201"
             },
             "2": {
-                "title": "変数とは",
-                "lecture_id": "P0301"
+                "title": "変数を利用する",
+                "lecture_id": "P0202"
             }
         }
     },
@@ -32,7 +36,7 @@
         "sections": {
             "1": {
                 "title": "データ型とは",
-                "lecture_id": "P0201"
+                "lecture_id": "P0301"
             }
         }
     },

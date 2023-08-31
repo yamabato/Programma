@@ -1,0 +1,51 @@
+TITLE: 2-2 変数を利用する
+
+LECTURE:
+
+PRG:
+PLN: 前節では、変数とはなにかを学び、実際に変数に値を代入しました。
+PLN: 変数を使うことで、ある値を保存して後から使ったり、値にわかりやすい名前を付けることができます。
+PLN: 前節は変数に値を代入しただけですが、代入された値を数値や文字列と同じように用いることができます。
+EPR:
+
+NLN:
+
+TASK:
+
+STMT:
+
+PRG:
+PLN: 変数
+COD: my_age
+PLN: に整数
+COD: 20
+PLN: を代入し、変数
+COD: your_age
+PLN: に整数
+COD: 120
+PLN: を代入せよ。
+EPR:
+
+PRG:
+PLN: さらに、
+COD: my_age
+PLN: と
+COD: your_age
+PLN: の和を変数
+COD: total
+PLN: に代入し、
+COD: print
+PLN: 関数を用いて表示せよ。
+EPR:
+
+ESTMT:
+
+CASE:
+VAR: my_age 20
+VAR: your_age 120
+VAR: total 140
+OUTPUT: 140::[NEWLINE];
+ECASE:
+
+CODE:
+# 変数を実際に利用してみましょう
