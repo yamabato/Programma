@@ -46,6 +46,11 @@
     overflow: auto;
     padding: 20px;
 }
+#game-match-submit-area{
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px;
+}
 .game-info-title{
     text-align: center;
     font-size: 30px;

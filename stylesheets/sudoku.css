@@ -20,3 +20,6 @@
 .game-match-p0-td.answer.incorrect{
     color: blue;
 }
+.game-match-p0-td.answer.blank{
+    color: #949495;
+}
