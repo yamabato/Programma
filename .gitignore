@@ -5,3 +5,6 @@
 /data/room_data.json
 /data/signed_in_users.json
 /data/users.json
+
+
+/ __pycache__
