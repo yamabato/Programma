@@ -52,8 +52,8 @@ def run_python_program(program, input_text="", record_vars=[]):
 
     return program_file_name, stdout_file_name, stderr_file_name, vars_file_name
 
-def get_python_program_output(program):
-    _, stdout_file_name, stderr_file_name, _ = run_python_program(program)
+def get_python_program_output(program, input_text=""):
+    _, stdout_file_name, stderr_file_name, _ = run_python_program(program, input_text)
 
     stdout_text = ""
     stderr_text = ""

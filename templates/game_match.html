@@ -2,19 +2,32 @@
 
 {% block content %}
 
+<div id="game-cover">
+
+</div>
+
 <div id="game-match-main">
     <div id="game-match-board-area">
     </div>
 
     <div id="game-match-info-area">
+        <select id="game-problem-select">
+            {{ problem_select | safe }}
+        </select>
+        <button class="game-submit-button" onclick="submitGameProgram();">実行</button>
     </div>
 
     <div id="game-match-output-area">
         <div class="game-output-title">出力</div>
+
+        <div id="output-container">
+        </div>
     </div>
 </div>
 
 <link rel="stylesheet" href="game.css">
+<link rel="stylesheet" href="sudoku.css">
+<script src = "game.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ace.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&family=Roboto+Mono&family=Zen+Kaku+Gothic+Antique:wght@300;400&display=swap" rel="stylesheet">

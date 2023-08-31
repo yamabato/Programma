@@ -31,3 +31,45 @@ function runGameProgram(){
     }).catch((error) => {
     });;
 }
+
+function toGameMatch(){
+    program = editor.getSession().getValue();
+    localStorage["gameProgram"] = program;
+
+    url = new URL(location.href);
+    gameID = url.searchParams.get("id");
+    if (gameID == null){
+        gameID = "p0";
+    }
+    localStorage["gameID"] = gameID;
+
+    window.open("/game_match", "_blank");
+}
+
+function submitGameProgram(){
+    clearGameOutput();
+
+    program = localStorage["gameProgram"];
+    gameID = localStorage["gameID"];
+    problemID = document.getElementById("game-problem-select").value;
+
+    fetch("https://programming.pythonanywhere.com/game_match", {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify({"program": program, "type": "submit", "game_id": gameID, "problem_id": problemID})
+    }).then((response) => {
+        if(!response.ok) {
+            printErrorGameOutput("通信エラー", ERROR_COL);
+        }
+        return response.json();
+    }).then((data)  => {
+        console.log(data)
+        printGameOutput(data["stdout"])
+        printErrorGameOutput(data["stderr"])
+        document.getElementById("game-match-board-area").innerHTML = data["board"];
+        console.log(data["correct"])
+    }).catch((error) => {
+    });
+}

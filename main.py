@@ -5,7 +5,7 @@ from app_info import get_release_log, get_feature_plan
 from lecture import generate_lecture_html, generate_task_cases_data, get_lectures_data
 from program import check_python_program, get_python_program_output
 from contact import record_contact, get_faq_list
-from pencil import get_puzzle_info, get_problem_select
+from pencil import get_puzzle_info, get_problem_select, check_game_program
 from match import make_new_room, enter_room, get_participant_list, start_match, is_started, return_match_next_problem, check_match_program, is_finished, surrender, generate_ranking_html, get_room_info
 from user import signup, signin, check_auto_signin, record_cleared_task
 
@@ -336,18 +336,6 @@ def run_game_program():
 
         program = posted_data_json["program"]
 
-        """
-        if posted_data_json["type"] == "check":
-            lecture_id = request.args.get("lid", "P0101")
-            task_cases = generate_task_cases_data(lecture_id)
-            correct, input_text, stdout_text, stderr_text = check_python_program(program, task_cases)
-
-            if correct:
-                ok, username = get_username()
-                record_cleared_task(username, lecture_id)
-
-            return {"correct": correct, "stdout": stdout_text, "stderr": stderr_text}
-        """
         if posted_data_json["type"] == "run":
             stdout_text, stderr_text = get_python_program_output(program)
             return {"stdout": stdout_text, "stderr": stderr_text}
@@ -355,16 +343,22 @@ def run_game_program():
 @app.route("/game_match", methods=["POST", "GET"])
 def game_match_page():
     if request.method == "POST":
-        room_setting = request.data
-        if isinstance(room_setting, bytes): room_setting = room_setting.decode()
-        room_setting_json = json.loads(room_setting)
-        create_new_room(room_setting_json)
+        posted_data_json = get_posted_data()
+
+        program = posted_data_json["program"]
+        game_id = posted_data_json["game_id"]
+        problem_id = posted_data_json["problem_id"]
+
+        if posted_data_json["type"] == "submit":
+            ok, stdout_text, stderr_text, board, correct = check_game_program(program, game_id, problem_id)
+            return {"ok": ok, "stdout": stdout_text, "stderr": stderr_text, "board": board, "correct": correct}
 
     else:
         ok, username = get_username()
         if ok:
-            gameID = request.args.get("id", "b0")
-            return render_template("game_match.html", header_type="game", title="対戦", username=username)
+            game_id = request.args.get("id", "p0")
+            ok, problem_select = get_problem_select(game_id)
+            return render_template("game_match.html", header_type="game", title="パズル", username=username, problem_select=problem_select)
         else:
             return redirect(url_for("signin_page"))
 

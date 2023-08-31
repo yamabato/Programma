@@ -11,7 +11,7 @@
         <select id="game-problem-select">
             {{ problem_select | safe }}
         </select>
-        <button class="game-home-button">ホーム</button>
+        <button class="game-home-button" onclick="location.href='/';">ホーム</button>
     </div>
 
     <div id="game-editor-area">
@@ -19,7 +19,7 @@
 
     <div id="game-run-button-area">
         <button class="game-run-button" onclick="runGameProgram();">実行</button>
-        <button class="game-submit-button">提出</button>
+        <button class="game-submit-button" onclick="toGameMatch();">提出</button>
     </div>
 
     <div id="game-output-area">
