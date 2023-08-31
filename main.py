@@ -5,6 +5,7 @@ from app_info import get_release_log, get_feature_plan
 from lecture import generate_lecture_html, generate_task_cases_data, get_lectures_data
 from program import check_python_program, get_python_program_output
 from contact import record_contact, get_faq_list
+from pencil import get_puzzle_info
 from match import make_new_room, enter_room, get_participant_list, start_match, is_started, return_match_next_problem, check_match_program, is_finished, surrender, generate_ranking_html, get_room_info
 from user import signup, signin, check_auto_signin, record_cleared_task
 
@@ -320,8 +321,9 @@ def puzzle_page():
     else:
         ok, username = get_username()
         if ok:
-            gameID = request.args.get("id", "p0")
-            return render_template("game.html", header_type="game", title="ペンシルパズル", username=username)
+            game_id = request.args.get("id", "p0")
+            ok, puzzle_info = get_puzzle_info(game_id)
+            return render_template("game.html", header_type="game", title="ペンシルパズル", username=username, game_info=puzzle_info)
         else:
             return redirect(url_for("signin_page"))
 

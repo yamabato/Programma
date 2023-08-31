@@ -4,12 +4,7 @@
 
 <div id="game-main">
     <div id="game-info-area">
-        <div class="game-info-title">まるばつゲーム</div>
-        <div class="game-info-section">ルール</div>
-        <div class="game-info-text">ルールルールルールルールルールルールルールルールルールルールルールルールルールルールルールルールルールルールルールルールルールルールルールルールルールルールルールルールルール</div>
-        <div class="game-info-section">入力形式</div>
-        <div class="game-info-text"><span class="game-info-code">Code Sample</span></div>
-        <div class="game-info-section">出力形式</div>
+        {{ game_info | safe}}
     </div>
 
     <div id="game-button-area">
