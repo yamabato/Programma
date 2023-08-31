@@ -65,11 +65,24 @@ function submitGameProgram(){
         }
         return response.json();
     }).then((data)  => {
-        console.log(data)
         printGameOutput(data["stdout"])
         printErrorGameOutput(data["stderr"])
         document.getElementById("game-match-board-area").innerHTML = data["board"];
-        console.log(data["correct"])
+
+        document.getElementById("game-cover").style.display = "flex";
+        coverTitle = document.getElementById("cover-title");
+        if (data["correct"]){
+            coverTitle.classList = ["correct"];
+            coverTitle.innerHTML = "正解!";
+        }
+        else{
+            coverTitle.classList = ["incorrect"];
+            coverTitle.innerHTML = "不正解...";
+        }
     }).catch((error) => {
     });
+}
+
+function gameClosePopUp(){
+    document.getElementById("game-cover").style.display = "none";
 }
