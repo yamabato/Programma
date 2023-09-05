@@ -18,6 +18,8 @@ function changeMatchType(){
 
 function toggleLevel(level){
     document.getElementById(`level-${level}`).classList.toggle("on");
+    matchLevel = [1,2,3].filter((x)=>{return document.getElementById(`level-${x}`).classList.contains("on");});
+    getNumberOfProblems(matchLevel);
 }
 
 function checkNewRoomSetting(){
@@ -127,6 +129,25 @@ function sendNewRoomSetting(){
         else{
             document.getElementById("new-match-err-msg").innerHTML = data["errmsg"];
         }
+    }).catch((error) => {
+    });;
+}
+
+function getNumberOfProblems(level){
+    fetch("https://programming.pythonanywhere.com/no_of_prob", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({"level": level})
+    }).then((response) => {
+        if(!response.ok) {
+            console.log("ERROR");
+        }
+        return response.json();
+    }).then((data)  => {
+        number = data["number"];
+        document.getElementById("match-number-of-problems").innerHTML = `${number}問`;
     }).catch((error) => {
     });;
 }

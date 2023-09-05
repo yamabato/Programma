@@ -6,7 +6,7 @@ from lecture import generate_lecture_html, generate_task_cases_data, get_lecture
 from program import check_python_program, get_python_program_output
 from contact import record_contact, get_faq_list
 from pencil import get_puzzle_info, get_problem_select, check_game_program
-from match import make_new_room, enter_room, get_participant_list, start_match, is_started, return_match_next_problem, check_match_program, is_finished, surrender, generate_ranking_html, get_room_info, get_problem_html
+from match import make_new_room, enter_room, get_participant_list, start_match, is_started, return_match_next_problem, check_match_program, is_finished, surrender, generate_ranking_html, get_room_info, get_problem_html, get_number_of_problems
 from user import signup, signin, check_auto_signin, record_cleared_task
 
 app = Flask(__name__)
@@ -142,6 +142,15 @@ def new_room_page():
         return {"ok": ok, "match_id": match_id, "match_key": match_key, "errmsg": errmsg}
     else:
         return render_template("new_room.html", header_type="match", title="部屋作成", username=username)
+
+@app.route("/no_of_prob", methods=["POST"])
+def return_number_of_problems():
+    posted_data_json = get_posted_data()
+    level = posted_data_json["level"]
+
+    number = get_number_of_problems(level)
+
+    return {"number": number}
 
 @app.route("/enter", methods=["POST", "GET"])
 def enter_page():

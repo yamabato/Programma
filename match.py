@@ -476,5 +476,8 @@ def surrender(match_id, match_key, username):
 
     return True
 
+def get_number_of_problems(level):
+    problems = get_problem_list(level)
 
+    return len(problems)
 
