@@ -62,10 +62,11 @@ body{
 }
 #match-number-of-problems{
     font-size: 25px;
-    margin: 10px 0px;
+    margin-bottom: 10px;
     color: #a9a9a9;
 }
 .match-number-notes{
     font-size: 20px;
     color: black;
+    margin-top: 10px;
 }
