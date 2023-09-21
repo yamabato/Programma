@@ -1,0 +1,75 @@
+TITLE: 3-2 数値型
+
+LECTURE:
+
+PRG:
+PLN: Pythonには組み込み型としての数値型が3つ用意されています。すなわち、整数(
+COD: int
+PLN: )、浮動小数点数(
+COD: float
+PLN: )、複素数(
+COD: complex
+PLN: )です。
+EPR:
+
+NLN:
+
+PRG:
+PLN: Pythonの整数に範囲の制限はありません。従って、メモリサイズの許す限りの大きさの整数を扱うことができます。
+PLN: 浮動小数点数は多くの場合、倍精度浮動小数点数を用いることになります。また、複素数では実部、及び虚部の表現に浮動小数点数を用います。
+EPR:
+
+NLN:
+
+PRG:
+COD: 123
+PLN: のように、何ら修飾のない数字の並びは整数として扱われます。一方、
+COD: 12.3
+PLN: や、
+COD: 5e2
+PLN: のように、小数点や指数表記を含む場合、浮動小数点数として扱われます。さらに、
+COD: 5j
+PLN: あるいは
+COD: 5J
+PLN: のように、数値の後に
+COD: j
+PLN: ,
+COD: J
+PLN: を付したものは虚数として扱われます。
+EPR:
+
+NLN:
+
+PRG:
+PLN: 以上、Pythonにおける数値型について簡単に紹介しました。詳細については第4章で確認することにします。
+EPR:
+
+TASK:
+
+STMT:
+
+PRG:
+PLN: りんごが
+COD: 146
+PLN: 個あり、単価は
+COD: 150.4
+PLN: 円である。りんごの個数を変数
+COD: apples
+PLN: に代入し、単価を変数
+COD: price
+PLN: に代入した上ですべての合計価格を
+COD: total
+PLN: に代入せよ。
+PLN: りんごの個数は整数として扱うこと。
+EPR:
+
+ESTMT:
+
+CASE:
+VAR: apples 146
+VAR: price 150.4
+VAR: total 21958.4
+ECASE:
+
+CODE:
+# 数値型を使ってみましょう
