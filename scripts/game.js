@@ -43,7 +43,7 @@ function toGameMatch(){
     }
     localStorage["gameID"] = gameID;
 
-    window.open("/game_match", "_blank");
+    window.open(`/game_match?id=${gameID}`, "_blank");
 }
 
 function submitGameProgram(){
