@@ -4,6 +4,7 @@ import os
 from program import get_python_program_output
 
 P0_SUDOKU_INFO_PATH = "/home/programming/mysite/puzzles/p0_sudoku.html"
+P1_DECIPHER_INFO_PATH = "/home/programming/mysite/puzzles/p1_decipher.html"
 PUZZLE_PROBLEM_DATA_PATH = "/home/programming/mysite/data/puzzle_problem.json"
 PUZZLE_PROBLEM_FOLDER = "/home/programming/mysite/puzzles/"
 
@@ -12,6 +13,8 @@ def get_puzzle_info(puzzle_id):
 
     if puzzle_id == "p0":
         info_path = P0_SUDOKU_INFO_PATH
+    elif puzzle_id == "p1":
+        info_path = P1_DECIPHER_INFO_PATH
 
     else:
         return False, ""
