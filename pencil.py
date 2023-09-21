@@ -2,6 +2,7 @@ from util import load_json_file
 import os
 
 from program import get_python_program_output
+from util import generate_hash
 
 P0_SUDOKU_INFO_PATH = "/home/programming/mysite/puzzles/p0_sudoku.html"
 P1_DECIPHER_INFO_PATH = "/home/programming/mysite/puzzles/p1_decipher.html"
@@ -82,7 +83,7 @@ def check_game_program(program, game_id, problem_id):
 
     stdout_text, stderr_text = get_python_program_output(program, prob_input)
 
-    correct = prob_output == stdout_text
+    correct = prob_output == generate_hash(stdout_text)
     board = generate_board_html(game_id, prob_input, prob_output, stdout_text)
 
     return True, stdout_text, stderr_text, board, correct
